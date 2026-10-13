@@ -125,6 +125,11 @@ input[type=text],input[type=email],input[type=tel],input[type=date],select,texta
 textarea{min-height:112px;resize:vertical;line-height:1.6}
 input[type=text],input[type=email],input[type=tel],input[type=date],textarea{font-family:var(--font-mono);font-size:14px}
 input::placeholder,textarea::placeholder{color:var(--placeholder);opacity:1}
+/* browser autofill (Safari, Chrome): keep the KOSMΛ field look instead of the yellow fill */
+input:-webkit-autofill,input:-webkit-autofill:hover,textarea:-webkit-autofill,select:-webkit-autofill{-webkit-text-fill-color:var(--soft);caret-color:var(--soft);-webkit-box-shadow:0 0 0 1000px var(--bg) inset;box-shadow:0 0 0 1000px var(--bg) inset;transition:background-color 99999s ease-out 0s}
+input:-webkit-autofill:focus,textarea:-webkit-autofill:focus,select:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px var(--raise) inset;box-shadow:0 0 0 1000px var(--raise) inset}
+input:autofill,textarea:autofill,select:autofill{-webkit-text-fill-color:var(--soft);-webkit-box-shadow:0 0 0 1000px var(--bg) inset;box-shadow:0 0 0 1000px var(--bg) inset}
+
 input:hover,select:hover,textarea:hover{border-color:var(--muted)}
 input:focus,select:focus,textarea:focus{outline:1px solid var(--dot);outline-offset:0;border-color:var(--dot);background-color:var(--raise)}
 select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer;
