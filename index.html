@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Ankieta strategiczna marki · KOSMΛ Design Studio">
+<meta name="theme-color" content="#0a0a0a">
+<style>
+html{-webkit-text-size-adjust:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Ankieta strategiczna marki</title>
+<style>
+/* Layout: one reading column (max 720px) under a sticky progress bar; on wide screens a sticky section index sits to the left.
+   Single dark theme, colours and type from KOSMΛ DS: Quablo for headlines, Geist for UI and descriptions, Geist Mono in text fields. */
+@font-face{font-family:"Quablo";src:url("fonts/Quablo-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Quablo";src:url("fonts/Quablo-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Quablo";src:url("fonts/Quablo-SemiBold.otf") format("opentype");font-weight:600;font-display:swap}
+@font-face{font-family:"Geist";src:url("fonts/Geist-Light.ttf") format("truetype");font-weight:300;font-display:swap}
+@font-face{font-family:"Geist";src:url("fonts/Geist-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist";src:url("fonts/Geist-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Geist";src:url("fonts/Geist-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("fonts/GeistMono-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+
+:root{
+  color-scheme: dark;
+  /* KOSMΛ DS */
+  --main-black:#0a0a0a;   /* backgrounds */
+  --main-orange:#ff4f01;  /* CTA and accents (dots, digits, progress) */
+  --neutral-0:#cfcfcf;    /* logo, headlines */
+  --neutral-05:#a8a8a8;   /* proposed: labels, body and typed text (between neutral-0 and neutral-1) */
+  --neutral-1:#777777;    /* secondary text */
+  --neutral-2:#3b3b3b;    /* outlines */
+  --neutral-3:#1f1f1f;    /* raised surfaces */
+
+  --bg:var(--main-black);
+  --ink:var(--neutral-0);
+  --soft:var(--neutral-05);
+  --muted:var(--neutral-1);
+  --line:#2a2a2a;          /* outlines: one step darker than neutral-2 */
+  --scale-line:var(--neutral-2); /* slider track and ticks keep neutral-2 */
+  --placeholder:#525252;
+  --raise:var(--neutral-3);
+  --cta:var(--main-orange);
+  --dot:var(--main-orange);
+  --on-cta:#ffffff;
+  --bar-bg:rgba(10,10,10,.86);
+
+  --font-display:"Quablo","Geist",system-ui,sans-serif;
+  --font:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --track:0;
+
+  --t-xs:12px; --t-sm:13.5px; --t-md:15px; --t-lg:18px; --t-xl:clamp(23px,3.6vw,34px); --t-xxl:clamp(28px,5.2vw,48px);
+  --r-input:8px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--soft);font-family:var(--font);font-weight:400;font-size:var(--t-md);line-height:1.6;letter-spacing:var(--track);-webkit-font-smoothing:antialiased}
+::selection{background:var(--dot);color:var(--main-black)}
+a{color:inherit}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bar-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bar .logo svg{height:15px;width:auto;display:block}
+.progress-label{font-size:var(--t-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.12em;display:flex;gap:10px;align-items:baseline}
+.progress-label b{color:var(--dot);font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:.02em;font-size:var(--t-sm)}
+.progress-line{height:2px;background:transparent;position:relative}
+.progress-line i{position:absolute;left:0;top:-1px;height:2px;background:var(--dot);width:0;transition:width .35s ease}
+
+/* page grid */
+.page{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 96px;display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+@media (min-width:1080px){.page{grid-template-columns:220px minmax(0,720px);justify-content:center;gap:80px}}
+.toc{display:none}
+@media (min-width:1080px){
+  .toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 92px);align-self:start;padding-top:72px}
+}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.toc a{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:baseline;text-decoration:none;color:var(--muted);font-size:var(--t-sm);padding:7px 10px;border-radius:6px;transition:color .2s,background .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);background:var(--raise)}
+.toc .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.toc a.on .n{color:var(--dot)}
+.toc .c{font-size:var(--t-xs);font-variant-numeric:tabular-nums}
+.toc a.done .c{color:var(--dot)}
+
+main{min-width:0}
+
+/* hero */
+.hero{padding-block:72px 40px;display:grid;gap:28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--font-mono);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot);flex:none}
+h1{color:var(--ink);font-family:var(--font-display);font-size:var(--t-xxl);font-weight:500;line-height:1.08;letter-spacing:-.005em;margin:0;text-wrap:balance;max-width:16ch}
+.lede{font-size:20px;line-height:1.55;color:var(--soft);margin:0;max-width:56ch;font-weight:300}
+.lede + p{margin:0;color:var(--muted);max-width:60ch}
+.facts{font-family:var(--font-mono);display:flex;flex-wrap:wrap;gap:10px 28px;margin:4px 0 0;padding:0;list-style:none;font-size:var(--t-sm);color:var(--muted)}
+.facts b{color:var(--dot);font-weight:400;font-variant-numeric:tabular-nums}
+
+/* sections */
+section.part{padding-block:64px 8px;display:grid;gap:36px}
+.part-head{display:grid;gap:10px}
+.part-num{font-size:var(--t-sm);color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.part-num b{color:var(--dot);font-weight:400}
+h2{color:var(--ink);font-family:var(--font-display);font-size:var(--t-xl);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+.part-intro{margin:0;color:var(--muted);max-width:58ch;font-size:17px}
+.fields{display:grid;gap:34px}
+.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:34px 20px;align-items:start}
+
+/* fields */
+.field{display:grid;gap:10px;min-width:0;align-content:start}
+.q{font-family:var(--font);font-size:17px;font-weight:500;letter-spacing:0;color:var(--soft);line-height:1.45;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.req{font-family:var(--font);font-weight:400;font-size:var(--t-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.help{font-size:var(--t-sm);color:var(--muted);margin:-4px 0 0;line-height:1.5;max-width:62ch}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
+  width:100%;font:inherit;font-weight:400;font-size:var(--t-md);color:var(--soft);letter-spacing:var(--track);
+  background:transparent;border:1px solid var(--line);border-radius:var(--r-input);padding:12px 14px;min-height:48px;
+  transition:border-color .2s,background-color .2s}
+textarea{min-height:112px;resize:vertical;line-height:1.6}
+input[type=text],input[type=email],input[type=tel],input[type=date],textarea{font-family:var(--font-mono);font-size:14px}
+input::placeholder,textarea::placeholder{color:var(--placeholder);opacity:1}
+input:hover,select:hover,textarea:hover{border-color:var(--muted)}
+input:focus,select:focus,textarea:focus{outline:1px solid var(--dot);outline-offset:0;border-color:var(--dot);background-color:var(--raise)}
+select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 50%,calc(100% - 17px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+select:focus{background-color:var(--raise)}
+select.empty{color:var(--placeholder)}
+option{background:var(--raise);color:var(--ink)}
+input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.8);cursor:pointer}
+.invalid input,.invalid select,.invalid textarea{border-color:var(--cta)}
+.err{font-size:var(--t-sm);color:var(--cta);margin:0}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border:1px solid var(--line);border-radius:999px;font-family:var(--font-mono);font-size:13px;color:var(--muted);cursor:pointer;user-select:none;transition:border-color .2s,color .2s,background .2s;line-height:1.3}
+.chip span::before{content:"";width:6px;height:6px;border-radius:50%;border:1px solid var(--muted);flex:none;transition:background .2s,border-color .2s}
+.chip span:hover{color:var(--ink);border-color:var(--muted)}
+.chip input:checked + span{color:var(--ink);border-color:var(--dot);box-shadow:inset 0 0 0 1px var(--dot);background:var(--raise)}
+.chip input:checked + span::before{background:var(--dot);border-color:var(--dot)}
+.chip input:focus-visible + span{outline:2px solid var(--dot);outline-offset:2px}
+.chip input:disabled + span{opacity:.4;cursor:not-allowed}
+.chip input:disabled + span:hover{color:var(--muted);border-color:var(--line)}
+
+/* triple words */
+.words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.words{grid-template-columns:1fr}}
+.words label{position:relative;display:block}
+.words label b{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:400;color:var(--dot);font-size:var(--t-sm);font-variant-numeric:tabular-nums;pointer-events:none}
+.words input{padding-left:38px}
+
+/* sliders */
+.scale{display:grid;gap:10px;padding:18px 18px 14px;border:1px solid var(--line);border-radius:12px;transition:border-color .2s}
+.scale.touched{border-color:var(--neutral-2)}
+.scale-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.scale-ends{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:var(--t-sm)}
+.scale-ends span{color:var(--muted);transition:color .2s}
+.scale-ends span:last-child{text-align:right}
+.scale-ends span.lead{color:var(--ink)}
+.scale-read{font-size:var(--t-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.scale.touched .scale-read{color:var(--dot)}
+.scale-reset{background:none;border:0;padding:0;font:inherit;font-size:var(--t-xs);color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.scale-reset:hover{color:var(--ink)}
+.track{position:relative;height:28px}
+.ticks{position:absolute;inset:0 9px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.ticks i{width:1px;height:10px;background:var(--scale-line)}
+.ticks i:nth-child(4){height:16px;background:var(--muted)}
+input[type=range]{position:absolute;inset:0;width:100%;height:28px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--scale-line)}
+input[type=range]::-moz-range-track{height:1px;background:var(--scale-line)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--bg);border:1.5px solid var(--muted);margin-top:-9px;transition:background .2s,border-color .2s,transform .15s}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--bg);border:1.5px solid var(--muted)}
+.scale.touched input[type=range]::-webkit-slider-thumb{background:var(--dot);border-color:var(--dot)}
+.scale.touched input[type=range]::-moz-range-thumb{background:var(--dot);border-color:var(--dot)}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
+input[type=range]:focus{outline:none}
+input[type=range]:focus-visible::-webkit-slider-thumb{outline:2px solid var(--dot);outline-offset:3px}
+input[type=range]:focus-visible::-moz-range-thumb{outline:2px solid var(--dot);outline-offset:3px}
+.scales{display:grid;gap:12px}
+.scales-note{font-size:var(--t-sm);color:var(--muted);margin:0}
+
+/* consent */
+.consent{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;font-size:var(--t-sm);color:var(--muted);cursor:pointer;line-height:1.55}
+.consent input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:1px solid var(--muted);border-radius:5px;margin:1px 0 0;display:grid;place-items:center;cursor:pointer;background:transparent}
+.consent input:checked{border-color:var(--dot);background:var(--dot)}
+.consent input:checked::after{content:"";width:9px;height:5px;border-left:2px solid var(--main-black);border-bottom:2px solid var(--main-black);transform:rotate(-45deg) translate(1px,-1px)}
+.consent input:focus-visible{outline:2px solid var(--dot);outline-offset:2px}
+.invalid .consent input{border-color:var(--cta)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:500;font-size:var(--t-md);letter-spacing:.02em;padding:15px 24px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s,color .2s,transform .1s;min-height:52px}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:2px solid var(--dot);outline-offset:3px}
+.btn.cta{background:var(--cta);border-color:var(--cta);color:var(--on-cta);font-family:var(--font-display);font-weight:600;font-size:18px}
+.btn.cta:hover{filter:brightness(1.08)}
+.btn.quiet{border-color:transparent;color:var(--muted);padding-inline:6px}
+.btn.quiet:hover{color:var(--ink)}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* submit */
+.submit{margin-top:72px;padding-top:48px;border-top:1px solid var(--line);display:grid;gap:24px}
+.submit-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.status{font-size:var(--t-sm);color:var(--muted);margin:0;min-height:1.5em}
+.status.ok{color:var(--dot)}
+.status.bad{color:var(--cta)}
+.send,.sent{display:grid;gap:22px;padding:28px;border:1px solid var(--line);border-radius:16px;background:var(--raise)}
+.sent p{margin:0;max-width:58ch}
+.btn:disabled{opacity:.6;cursor:progress}
+.send h3,.sent h3{color:var(--ink);font-size:var(--t-lg);font-weight:500;margin:0}
+.send ol{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:s}
+.send ol li{display:grid;grid-template-columns:28px 1fr;gap:8px;color:var(--ink);font-size:var(--t-md)}
+.send ol li::before{counter-increment:s;content:counter(s,decimal-leading-zero);color:var(--dot);font-variant-numeric:tabular-nums;font-size:var(--t-sm);padding-top:2px}
+.addr{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.addr code{font-family:var(--font-mono);font-size:var(--t-lg);font-weight:400;color:var(--ink);user-select:all;word-break:break-all}
+.addr .btn{min-height:38px;padding:8px 14px;font-size:var(--t-sm)}
+details{border-top:1px solid var(--line);padding-top:16px}
+summary{cursor:pointer;color:var(--muted);font-size:var(--t-sm)}
+summary:hover{color:var(--ink)}
+.preview{margin-top:14px;width:100%;min-height:260px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.55;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;resize:vertical;white-space:pre-wrap}
+
+.reset-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:var(--t-sm);color:var(--muted)}
+footer{margin-top:72px;padding-top:28px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;font-size:var(--t-xs);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+footer svg{height:12px;width:auto;display:block}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="bar-in">
+    <a class="logo" href="#top" aria-label="KOSMΛ Design Studio">
+      <svg width="189" height="32" viewBox="0 0 189 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M54.8577 4.668C53.4025 3.20499 51.7059 2.05501 49.8197 1.25206C47.8659 0.419621 45.788 0 43.6492 0C41.5103 0 39.4324 0.421889 37.4764 1.25206C35.588 2.05501 33.8936 3.20499 32.4361 4.668C30.9809 6.131 29.837 7.8367 29.0384 9.7352C28.2104 11.7017 27.793 13.7885 27.793 15.941C27.793 18.0936 28.2126 20.1804 29.0384 22.1469C29.837 24.0454 30.9809 25.7488 32.4361 27.2141C33.8913 28.6771 35.588 29.8271 37.4764 30.63C39.4324 31.4625 41.5081 31.8821 43.6492 31.8821C45.7903 31.8821 47.8659 31.4602 49.8197 30.63C51.7081 29.8271 53.4025 28.6771 54.8577 27.2141C56.3129 25.7511 57.4568 24.0454 58.2555 22.1469C59.0812 20.1804 59.5009 18.0936 59.5009 15.941C59.5009 13.7885 59.0812 11.7017 58.2555 9.7352C57.4568 7.8367 56.3129 6.13327 54.8577 4.668ZM43.6469 26.9895C37.5892 26.9895 32.6595 22.0335 32.6595 15.941C32.6595 9.84861 37.5892 4.89255 43.6469 4.89255C49.7047 4.89255 54.6344 9.84861 54.6344 15.941C54.6344 22.0335 49.7047 26.9895 43.6469 26.9895Z" fill="#CFCFCF"/><path d="M22.9473 6.30859H15.9532L6.74363 15.5561L5.51403 16.7923H4.94322V6.30859H0V25.5726H4.94322V21.7597L7.57163 21.7552L10.3422 18.9675L16.8873 25.5726H23.8655L13.8415 15.4518L22.9473 6.30859Z" fill="#CFCFCF"/><path d="M72.3518 19.2398C72.3518 20.848 73.9243 21.8936 78.9375 21.8936C83.5242 21.8936 84.6433 21.1701 84.6433 19.9634C84.6433 18.5684 83.7905 18.328 78.1365 17.9537C70.4295 17.4184 67.016 15.8624 67.016 11.6277C67.016 7.63334 71.3094 5.83691 77.8951 5.83691C85.2276 5.83691 89.4421 8.06204 89.6023 12.324H83.8423C83.8423 10.6342 82.0036 9.99229 77.735 9.99229C73.4663 9.99229 72.7759 10.6614 72.7759 11.7071C72.7759 12.8865 73.6829 13.2631 78.8563 13.6918C85.8435 14.2271 90.4032 14.7102 90.4032 19.723C90.4032 24.7357 85.8977 26.049 79.1225 26.049C71.4155 26.049 66.8287 24.2798 66.5625 19.2398H72.3495H72.3518Z" fill="#CFCFCF"/><path d="M153.01 6.37305H145.382L135.57 25.5146H141.518L149.197 10.2608L156.875 25.5146H162.795L153.01 6.37305Z" fill="#CFCFCF"/><path d="M166.656 7.16172H165.649V9.06015H164.582V7.16172H163.574V6.37305H166.656V7.16172Z" fill="#CFCFCF"/><path d="M171.072 6.37305V9.06015H170.021V7.60437L169.143 8.70478H169.091L168.213 7.60437V9.06015H167.184V6.37305H168.349L169.143 7.43604L169.946 6.37305H171.075H171.072Z" fill="#CFCFCF"/><path d="M124.55 25.516V11.5175L123.962 11.3742L116.598 25.516H111.685L104.348 11.3745L103.76 11.5175V25.516H98.6484V6.37598H107.097L114.155 19.8548L121.213 6.37598H129.634V25.516H124.55Z" fill="#CFCFCF"/></svg>
+    </a>
+    <div class="progress-label" aria-live="polite">Wypełniono <b id="pct">0%</b></div>
+  </div>
+  <div class="progress-line"><i id="pbar"></i></div>
+</div>
+
+<div class="page" id="top">
+  <nav class="toc" aria-label="Części ankiety"><ol id="toc"></ol></nav>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">Brief strategiczny · nowa marka</div>
+      <h1>Zanim powstanie logo, poznajmy Twoją firmę.</h1>
+      <p class="lede">Każda firma ma swoją historię, swoich ludzi i powody, dla których klienci do niej wracają. Ta ankieta pomoże mi je uchwycić i zamienić w strategię oraz kierunek wizualny Twojej marki.</p>
+      <p>Nie ma tu złych odpowiedzi. Jeśli czegoś jeszcze nie wiesz, po prostu pomiń pytanie. Porozmawiamy o tym na spotkaniu.</p>
+      <ul class="facts">
+        <li><b>~20</b> minut</li>
+        <li><b>9</b> części</li>
+        <li>Szkic zapisuje się w tej przeglądarce</li>
+      </ul>
+    </header>
+
+    <form id="form" novalidate></form>
+
+    <div class="submit" id="submit">
+      <div class="part-head">
+        <div class="part-num">Gotowe?</div>
+        <h2>Wyślij odpowiedzi</h2>
+        <p class="part-intro">Odpowiedzi trafią prosto do Mika ze studia KOSMΛ. Odezwę się, gdy tylko je przeczytam.</p>
+      </div>
+      <div class="submit-row">
+        <button type="button" class="btn cta" id="prepare"><span id="prepareLabel">Wyślij odpowiedzi</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+      <input type="checkbox" id="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+      <p class="status" id="status" role="status"></p>
+
+      <div class="sent" id="sent" hidden>
+        <h3>Dziękuję, odpowiedzi dotarły.</h3>
+        <p>Przeczytam je i wrócę do Ciebie z pierwszymi wnioskami oraz propozycją dalszych kroków. Jeśli chcesz, zachowaj kopię swoich odpowiedzi.</p>
+        <div class="submit-row">
+          <button type="button" class="btn" data-download hidden>Pobierz kopię (.md)</button>
+          <button type="button" class="btn" id="copySent">Kopiuj odpowiedzi</button>
+        </div>
+        <p class="status" id="sentStatus" role="status"></p>
+      </div>
+
+      <div class="send" id="send" hidden>
+        <h3>Wyślij odpowiedzi mailem</h3>
+        <ol>
+          <li><span>Kliknij <b>Otwórz e-mail</b>. Odpowiedzi trafią do schowka, a program pocztowy otworzy nową wiadomość.</span></li>
+          <li><span>Jeśli treść nie pojawiła się w wiadomości, wklej ją (Ctrl+V lub Cmd+V) i wyślij.</span></li>
+          <li><span>Program pocztowy się nie otworzył? Skopiuj odpowiedzi i wyślij je na adres poniżej.</span></li>
+        </ol>
+        <div class="submit-row">
+          <a class="btn cta" id="mailto" href="mailto:mik@kosma.design">Otwórz e-mail</a>
+          <button type="button" class="btn" id="copy">Kopiuj odpowiedzi</button>
+          <button type="button" class="btn" data-download hidden>Pobierz plik .md</button>
+        </div>
+        <div class="addr">
+          <code id="addr">mik@kosma.design</code>
+          <button type="button" class="btn" id="copyAddr">Kopiuj adres</button>
+        </div>
+        <p class="status" id="sendStatus" role="status"></p>
+        <details>
+          <summary>Podgląd treści wiadomości</summary>
+          <textarea class="preview" id="preview" readonly aria-label="Treść wiadomości"></textarea>
+        </details>
+      </div>
+
+      <div class="reset-row" id="resetRow">
+        <button type="button" class="btn quiet" id="reset">Wyczyść formularz</button>
+      </div>
+    </div>
+
+    <footer>
+      <span>KOSMΛ Design Studio · mik@kosma.design</span>
+      <svg width="189" height="32" viewBox="0 0 189 32" fill="none" aria-hidden="true"><path d="M54.8577 4.668C53.4025 3.20499 51.7059 2.05501 49.8197 1.25206C47.8659 0.419621 45.788 0 43.6492 0C41.5103 0 39.4324 0.421889 37.4764 1.25206C35.588 2.05501 33.8936 3.20499 32.4361 4.668C30.9809 6.131 29.837 7.8367 29.0384 9.7352C28.2104 11.7017 27.793 13.7885 27.793 15.941C27.793 18.0936 28.2126 20.1804 29.0384 22.1469C29.837 24.0454 30.9809 25.7488 32.4361 27.2141C33.8913 28.6771 35.588 29.8271 37.4764 30.63C39.4324 31.4625 41.5081 31.8821 43.6492 31.8821C45.7903 31.8821 47.8659 31.4602 49.8197 30.63C51.7081 29.8271 53.4025 28.6771 54.8577 27.2141C56.3129 25.7511 57.4568 24.0454 58.2555 22.1469C59.0812 20.1804 59.5009 18.0936 59.5009 15.941C59.5009 13.7885 59.0812 11.7017 58.2555 9.7352C57.4568 7.8367 56.3129 6.13327 54.8577 4.668ZM43.6469 26.9895C37.5892 26.9895 32.6595 22.0335 32.6595 15.941C32.6595 9.84861 37.5892 4.89255 43.6469 4.89255C49.7047 4.89255 54.6344 9.84861 54.6344 15.941C54.6344 22.0335 49.7047 26.9895 43.6469 26.9895Z" fill="#CFCFCF"/><path d="M22.9473 6.30859H15.9532L6.74363 15.5561L5.51403 16.7923H4.94322V6.30859H0V25.5726H4.94322V21.7597L7.57163 21.7552L10.3422 18.9675L16.8873 25.5726H23.8655L13.8415 15.4518L22.9473 6.30859Z" fill="#CFCFCF"/><path d="M72.3518 19.2398C72.3518 20.848 73.9243 21.8936 78.9375 21.8936C83.5242 21.8936 84.6433 21.1701 84.6433 19.9634C84.6433 18.5684 83.7905 18.328 78.1365 17.9537C70.4295 17.4184 67.016 15.8624 67.016 11.6277C67.016 7.63334 71.3094 5.83691 77.8951 5.83691C85.2276 5.83691 89.4421 8.06204 89.6023 12.324H83.8423C83.8423 10.6342 82.0036 9.99229 77.735 9.99229C73.4663 9.99229 72.7759 10.6614 72.7759 11.7071C72.7759 12.8865 73.6829 13.2631 78.8563 13.6918C85.8435 14.2271 90.4032 14.7102 90.4032 19.723C90.4032 24.7357 85.8977 26.049 79.1225 26.049C71.4155 26.049 66.8287 24.2798 66.5625 19.2398H72.3495H72.3518Z" fill="#CFCFCF"/><path d="M153.01 6.37305H145.382L135.57 25.5146H141.518L149.197 10.2608L156.875 25.5146H162.795L153.01 6.37305Z" fill="#CFCFCF"/><path d="M124.55 25.516V11.5175L123.962 11.3742L116.598 25.516H111.685L104.348 11.3745L103.76 11.5175V25.516H98.6484V6.37598H107.097L114.155 19.8548L121.213 6.37598H129.634V25.516H124.55Z" fill="#CFCFCF"/></svg>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+"use strict";
+var EMAIL = "mik@kosma.design";
+var STORE = "kosma-brief-v2";
+var WEB3FORMS_KEY = "60def38b-9ea8-48f6-8671-d5b9d3622979";
+var WEB3FORMS_URL = "https://api.web3forms.com/submit";
+
+/* ---------- schema ---------- */
+var S = [
+ {id:"firma", title:"Ty i Twoja firma", nav:"Firma", intro:"Kilka podstaw o Tobie i o firmie. To punkt wyjścia całej strategii.", fields:[
+  {row:[
+   {k:"imie", t:"text", q:"Imię i nazwisko", req:true, ph:"np. Anna Kowalska", ac:"name"},
+   {k:"email", t:"email", q:"E-mail", req:true, ph:"twoj@adres.pl", ac:"email"}
+  ]},
+  {row:[
+   {k:"tel", t:"tel", q:"Telefon", ph:"+48", ac:"tel"},
+   {k:"rola", t:"select", q:"Twoja rola w firmie", o:["Właściciel / założyciel","Wspólnik","Zarząd","Marketing / komunikacja","Inna"]}
+  ]},
+  {row:[
+   {k:"branza", t:"text", q:"Branża", ph:"np. architektura wnętrz, e-commerce, IT"},
+   {k:"region", t:"text", q:"Miasto lub region działania", ph:"np. Kraków, cała Polska"}
+  ]},
+  {row:[
+   {k:"pracownicy", t:"select", q:"Liczba pracowników", o:["Tylko ja","2–5 osób","6–10 osób","11–50 osób","51–250 osób","Ponad 250 osób"]},
+   {k:"etap", t:"select", q:"Na jakim etapie jest firma?", o:["Dopiero startuje","Działa do 2 lat","Działa 2–5 lat","Działa ponad 5 lat","Przechodzi rebranding"]}
+  ]},
+  {k:"forma", t:"select", q:"Forma prawna", o:["Jednoosobowa działalność gospodarcza","Spółka cywilna","Spółka z o.o.","Inna spółka (S.A., komandytowa, jawna)","Fundacja lub stowarzyszenie","Jeszcze nie wiem"]},
+  {k:"historia", t:"textarea", q:"Jak powstała firma i dlaczego?", help:"Krótka historia: kto, kiedy, z jakiego powodu. Co chcesz robić inaczej niż inni?"}
+ ]},
+ {id:"oferta", title:"Oferta i rynek", nav:"Oferta", intro:"Co firma sprzedaje, komu i w jaki sposób.", fields:[
+  {k:"co", t:"chips", q:"Co sprzedajecie?", o:["Usługi","Produkty fizyczne","Produkty cyfrowe / oprogramowanie","Subskrypcje","Szkolenia i wiedza","Gastronomię lub noclegi","Inne"]},
+  {k:"glowna", t:"text", q:"Najważniejszy produkt lub usługa", help:"Ta jedna rzecz, z której marka ma być znana najbardziej.", ph:"np. projekty wnętrz mieszkań pod klucz"},
+  {k:"komu", t:"chips", q:"Komu sprzedajecie?", o:["Klientom indywidualnym (B2C)","Firmom (B2B)","Instytucjom publicznym","Organizacjom społecznym"]},
+  {row:[
+   {k:"zasieg", t:"select", q:"Zasięg działania", o:["Lokalny","Regionalny","Cała Polska","Europa","Cały świat"]},
+   {k:"model", t:"select", q:"Model rozliczeń", o:["Jednorazowa sprzedaż","Projekty / zlecenia","Abonament / subskrypcja","Prowizja","Model mieszany","Jeszcze nie wiem"]}
+  ]},
+  {k:"sprzedaz", t:"chips", q:"Gdzie sprzedajecie?", o:["Sklep internetowy","Lokal stacjonarny","Sprzedaż bezpośrednia","Marketplace'y (Allegro, Amazon, Etsy)","Dystrybutorzy i partnerzy","Polecenia","Przetargi"]},
+  {k:"segment", t:"scale", q:"Pozycja cenowa", l:"Budżetowa", r:"Premium"},
+  {k:"wyroznik", t:"textarea", q:"Co Was wyróżnia na tle konkurencji?", help:"Konkretnie: liczby, specjalizacja, sposób pracy, historia klienta, którą lubisz opowiadać.", ph:"np. Odpowiadamy w 2 godziny, a każdy projekt prowadzi jedna osoba od początku do końca…"},
+  {row:[
+   {k:"lubie", t:"textarea", q:"Marki, które cenisz", help:"Z Twojej branży lub spoza niej. I za co."},
+   {k:"nielubie", t:"textarea", q:"Marki, których nie chcesz przypominać", help:"I co Cię w nich odpycha."}
+  ]}
+ ]},
+ {id:"klienci", title:"Klienci", nav:"Klienci", intro:"Dla kogo jest ta marka. Im konkretniej, tym trafniej dobierzemy ton i obraz.", fields:[
+  {k:"wiek", t:"chips", q:"Wiek klientów", o:["do 25","25–34","35–44","45–54","55–64","65+","Nie ma znaczenia"]},
+  {k:"zamoznosc", t:"scale", q:"Budżet typowego klienta", l:"Ostrożny", r:"Wysoki"},
+  {k:"persona", t:"textarea", q:"Opisz jednego idealnego klienta", help:"Jedną konkretną osobę albo firmę, nie grupę. Kim jest, czego szuka, czym się martwi.", ph:"np. Marta, 36 lat, prowadzi własną kancelarię. Nie ma czasu na szukanie dostawców…"},
+  {k:"problem", t:"textarea", q:"Jaki problem klienta rozwiązujecie?", help:"Co się dzieje u klienta, zanim do Was trafi? Co się zmienia potem?"},
+  {k:"dlaczego_my", t:"textarea", q:"Dlaczego klienci wybierają Was, a nie konkurencję?", help:"Najlepiej ich słowami, jeśli je znasz."},
+  {k:"zrodla", t:"chips", q:"Skąd przychodzą klienci?", o:["Polecenia","Google","Social media","Reklamy płatne","Targi i wydarzenia","Sprzedaż bezpośrednia","Marketplace'y","Partnerzy"]},
+  {k:"jezyki", t:"chips", q:"W jakich językach komunikujecie się z klientami?", o:["polski","angielski","niemiecki","ukraiński","inny"]}
+ ]},
+ {id:"misja", title:"Misja i wartości", nav:"Wartości", intro:"Fundament, na którym oprze się cała komunikacja.", fields:[
+  {k:"misja", t:"textarea", q:"Po co istnieje Twoja firma, poza zarabianiem pieniędzy?", ph:"np. Żeby małe firmy mogły wyglądać tak profesjonalnie jak duże."},
+  {k:"wizja", t:"textarea", q:"Gdzie firma ma być za 3–5 lat?", help:"Wielkość zespołu, rynki, rozpoznawalność, nowe produkty."},
+  {k:"wartosci", t:"chips", max:3, q:"Najważniejsze wartości", help:"Wybierz maksymalnie 3. Te, z których nie zrezygnujesz nawet kosztem zysku.", o:["Jakość","Zaufanie","Innowacyjność","Prostota","Odpowiedzialność","Bliskość","Szybkość","Rzemiosło","Ekologia","Odwaga","Przejrzystość","Wspólnota"]}
+ ]},
+ {id:"charakter", title:"Charakter marki", nav:"Charakter", intro:"Przesuń suwaki tam, gdzie widzisz swoją markę. Środek oznacza „pomiędzy”. Suwaki, których nie ruszysz, potraktuję jako „bez zdania”.", fields:[
+  {scales:[
+   {k:"c_powaga", l:"Poważna", r:"Z humorem"},
+   {k:"c_formalna", l:"Formalna", r:"Bezpośrednia"},
+   {k:"c_tradycja", l:"Tradycyjna", r:"Nowoczesna"},
+   {k:"c_ekskl", l:"Ekskluzywna", r:"Przystępna"},
+   {k:"c_glos", l:"Stonowana", r:"Wyrazista"},
+   {k:"c_racjo", l:"Rzeczowa, liczby i fakty", r:"Emocjonalna, ludzie i historie"},
+   {k:"c_lokalna", l:"Lokalna", r:"Międzynarodowa"},
+   {k:"c_odwaga", l:"Ostrożna", r:"Odważna"}
+  ]},
+  {k:"zwrot", t:"select", q:"Jak marka ma zwracać się do klientów?", o:["Per Pan / Pani","Per Ty","Zależnie od kanału (np. Ty w social mediach, Pan/Pani w ofertach)"]},
+  {k:"slowa", t:"words", q:"Trzy słowa, które mają opisywać markę", help:"Przymiotniki albo rzeczowniki. Pierwsze, co przychodzi do głowy."},
+  {k:"osoba", t:"textarea", q:"Gdyby marka była osobą, kim by była?", help:"Wiek, zawód, jak się ubiera, jak mówi, jak spędza weekend."},
+  {k:"nigdy", t:"textarea", q:"Czego marka nie powinna nigdy robić ani mówić?"}
+ ]},
+ {id:"nazwa", title:"Nazwa i komunikacja", nav:"Nazwa", intro:"Jak marka będzie się nazywać i gdzie będzie jej słychać.", fields:[
+  {row:[
+   {k:"nazwa_status", t:"select", q:"Nazwa firmy", o:["Mam nazwę i zostaje","Mam nazwę, ale chcę ją zmienić","Mam roboczą nazwę","Szukam nazwy","Chcę markę osobistą (imię i nazwisko)"]},
+   {k:"domena", t:"select", q:"Domena i profile w social mediach", o:["Mam już zarejestrowane","Sprawdzone, są wolne","Jeszcze nie sprawdzane"]}
+  ]},
+  {k:"nazwa", t:"text", q:"Nazwa albo propozycje nazw", ph:"np. Atelier Nowak, Pion, …"},
+  {k:"twarz", t:"select", q:"Czy Ty lub zespół macie być twarzą marki?", o:["Tak, na pierwszym planie","Czasem, w tle","Nie, marka ma działać sama"]},
+  {k:"kanaly", t:"chips", q:"Gdzie marka będzie się komunikować?", o:["Strona www","Profil firmy w Google","Instagram","Facebook","LinkedIn","TikTok","YouTube","Newsletter","Materiały drukowane","Targi i wydarzenia"]},
+  {k:"haslo", t:"text", q:"Pomysły na hasło", help:"Opcjonalnie. Nawet robocze i nieidealne.", ph:"np. Zrobione porządnie"}
+ ]},
+ {id:"wizual", title:"Styl wizualny", nav:"Styl", intro:"Tu nie projektujemy jeszcze logo. Szukamy kierunku: jak marka ma wyglądać i jak ma się czuć.", fields:[
+  {k:"obecna", t:"select", q:"Czy firma ma już logo lub identyfikację?", o:["Nie, zaczynamy od zera","Tak, ale do całkowitej zmiany","Tak, do odświeżenia","Tak, zostaje (potrzebne nowe materiały)"]},
+  {scales:[
+   {k:"v_detal", l:"Minimalistyczny", r:"Bogaty w detale"},
+   {k:"v_temp", l:"Ciepły", r:"Chłodny"},
+   {k:"v_klasyka", l:"Klasyczny", r:"Eksperymentalny"},
+   {k:"v_forma", l:"Geometryczny", r:"Organiczny"},
+   {k:"v_jasnosc", l:"Jasny", r:"Ciemny"},
+   {k:"v_litery", l:"Litery szeryfowe, eleganckie", r:"Litery bezszeryfowe, czyste"}
+  ]},
+  {k:"logo_typ", t:"select", q:"Jaki rodzaj logo bierzesz pod uwagę?", o:["Znak i nazwa","Sama nazwa (logotyp)","Monogram / inicjały","Emblemat","Zdaję się na projektanta"]},
+  {row:[
+   {k:"kolory_tak", t:"text", q:"Kolory, które lubisz", ph:"np. butelkowa zieleń, piasek"},
+   {k:"kolory_nie", t:"text", q:"Kolory, których nie chcesz", ph:"np. czerwień, róż"}
+  ]},
+  {k:"nosniki", t:"chips", q:"Gdzie logo musi dobrze działać?", help:"Mała ikona aplikacji i szyld nad wejściem to zupełnie inne zadania. Zaznacz wszystkie, które dotyczą Twojej firmy.", o:["Strona www i ikona w przeglądarce","Avatar w social mediach","Aplikacja mobilna","Wizytówki","Oferty i dokumenty PDF","Prezentacje","Opakowania i etykiety","Szyld i oznakowanie","Oklejenie samochodów","Odzież firmowa","Materiały targowe"]},
+  {k:"inspiracje", t:"textarea", q:"Inspiracje wizualne", help:"Linki, marki spoza branży, wnętrza, okładki, cokolwiek, co Ci się podoba.", ph:"https://…"}
+ ]},
+ {id:"zakres", title:"Zakres, budżet i terminy", nav:"Zakres", intro:"Żebym mógł przygotować realny plan i wycenę.", fields:[
+  {k:"zakres", t:"chips", q:"Czego potrzebujesz?", o:["Strategia marki","Nazwa","Logo","Księga znaku","Identyfikacja wizualna (druki, dokumenty)","Szablony social media","Strona www","Projekt aplikacji (UI/UX)","Opakowania","Prezentacja firmowa","Wizualizacje 3D","Oznakowanie i szyldy"]},
+  {row:[
+   {k:"budzet", t:"select", q:"Budżet (netto)", o:["do 5 000 zł","5 000 – 15 000 zł","15 000 – 30 000 zł","30 000 – 60 000 zł","powyżej 60 000 zł","Proszę o wycenę"]},
+   {k:"termin", t:"select", q:"Kiedy marka ma być gotowa?", o:["Jak najszybciej","W ciągu miesiąca","W ciągu 2–3 miesięcy","Bez pośpiechu"]}
+  ]},
+  {row:[
+   {k:"start", t:"date", q:"Kiedy chcesz zacząć współpracę?"},
+   {k:"decyzja", t:"select", q:"Kto podejmuje decyzje w projekcie?", o:["Tylko ja","Ja i wspólnicy","Zarząd","Dział marketingu","Ktoś jeszcze (opiszę w uwagach)"]}
+  ]},
+  {k:"cel", t:"textarea", q:"Co ma się zmienić w firmie dzięki nowej marce?", help:"Więcej zapytań, wyższe ceny, nowy rynek, łatwiejsza rekrutacja. Cokolwiek jest dla Ciebie miarą sukcesu."}
+ ]},
+ {id:"koniec", title:"Na koniec", nav:"Na koniec", intro:"Ostatnie słowo należy do Ciebie.", fields:[
+  {k:"uwagi", t:"textarea", q:"Coś jeszcze, co powinienem wiedzieć?"},
+  {k:"skad", t:"select", q:"Skąd wiesz o studiu KOSMΛ?", o:["Polecenie","Google","Instagram","LinkedIn","Behance / Dribbble","Inne"]},
+  {k:"zgoda", t:"consent", req:true, q:"Zgoda na kontakt", text:"Zgadzam się, aby KOSMΛ Design Studio wykorzystało podane informacje do przygotowania strategii, oferty i kontaktu w sprawie projektu."}
+ ]}
+];
+
+var STEP_WORDS=["zdecydowanie","raczej","lekko","pośrodku","lekko","raczej","zdecydowanie"];
+
+/* ---------- state ---------- */
+var state={};
+try{ var raw=localStorage.getItem(STORE); if(raw){ state=JSON.parse(raw)||{}; } }catch(e){ state={}; }
+var saveTimer=null;
+function persist(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(function(){ try{ localStorage.setItem(STORE, JSON.stringify(state)); }catch(e){} },250);
+}
+
+/* ---------- helpers ---------- */
+function el(tag, attrs, kids){
+  var n=document.createElement(tag);
+  if(attrs){ for(var a in attrs){
+    if(a==="text") n.textContent=attrs[a];
+    else if(a==="html") n.innerHTML=attrs[a];
+    else if(a==="cls") n.className=attrs[a];
+    else n.setAttribute(a, attrs[a]);
+  }}
+  (kids||[]).forEach(function(c){ if(c) n.appendChild(typeof c==="string"?document.createTextNode(c):c); });
+  return n;
+}
+function pad(n){ return (n<10?"0":"")+n; }
+function findField(k){
+  var out=null;
+  S.forEach(function(s){ s.fields.forEach(function(f){
+    if(f.row) f.row.forEach(function(g){ if(g.k===k) out=g; });
+    else if(f.scales) f.scales.forEach(function(g){ if(g.k===k) out=g; });
+    else if(f.k===k) out=f;
+  });});
+  return out;
+}
+function allFields(sec){
+  var list=[];
+  sec.fields.forEach(function(f){
+    if(f.row) f.row.forEach(function(g){ list.push(g); });
+    else if(f.scales) f.scales.forEach(function(g){ list.push(Object.assign({t:"scale"},g)); });
+    else list.push(f);
+  });
+  return list;
+}
+function answered(f){
+  var v=state[f.k];
+  if(f.t==="chips") return Array.isArray(v)&&v.length>0;
+  if(f.t==="words") return Array.isArray(v)&&v.some(function(x){return x&&x.trim();});
+  if(f.t==="scale") return typeof v==="number";
+  if(f.t==="consent") return v===true;
+  return typeof v==="string"&&v.trim()!=="";
+}
+
+/* ---------- renderers ---------- */
+function head(f, forId){
+  var q=el("label",{cls:"q", "for":forId},[f.q]);
+  if(f.req) q.appendChild(el("span",{cls:"req",text:"wymagane"}));
+  return q;
+}
+function wrap(f, control){
+  var d=el("div",{cls:"field", "data-k":f.k});
+  if(f.t==="chips"||f.t==="words"||f.t==="consent"){
+    var lab=el("div",{cls:"q", id:"q-"+f.k},[f.q]);
+    if(f.req) lab.appendChild(el("span",{cls:"req",text:"wymagane"}));
+    d.appendChild(lab);
+  } else d.appendChild(head(f,"f-"+f.k));
+  if(f.help) d.appendChild(el("p",{cls:"help",text:f.help}));
+  d.appendChild(control);
+  return d;
+}
+function selectOptions(sel, f){
+  var cur=state[f.k]||"";
+  sel.innerHTML="";
+  sel.appendChild(el("option",{value:"",text:"Wybierz…"}));
+  var opts=f.o;
+  if(f.from){
+    var picked=state[f.from];
+    opts=(Array.isArray(picked)&&picked.length)?picked:findField(f.from).o;
+  }
+  opts.forEach(function(o){ var op=el("option",{value:o,text:o}); if(o===cur) op.selected=true; sel.appendChild(op); });
+  if(cur && opts.indexOf(cur)===-1){ var op=el("option",{value:cur,text:cur}); op.selected=true; sel.appendChild(op); }
+  sel.classList.toggle("empty", !sel.value);
+}
+function renderField(f){
+  var id="f-"+f.k, c;
+  switch(f.t){
+    case "text": case "email": case "tel": case "date":
+      c=el("input",{type:f.t, id:id, name:f.k});
+      if(f.ph) c.placeholder=f.ph;
+      if(f.ac) c.autocomplete=f.ac;
+      if(f.req) c.required=true;
+      c.value=state[f.k]||"";
+      c.addEventListener("input",function(){ state[f.k]=c.value; changed(f); });
+      return wrap(f,c);
+    case "textarea":
+      c=el("textarea",{id:id, name:f.k, rows:"4"});
+      if(f.ph) c.placeholder=f.ph;
+      c.value=state[f.k]||"";
+      c.addEventListener("input",function(){ state[f.k]=c.value; changed(f); });
+      return wrap(f,c);
+    case "select":
+      c=el("select",{id:id, name:f.k});
+      selectOptions(c,f);
+      c.addEventListener("change",function(){ state[f.k]=c.value; c.classList.toggle("empty",!c.value); changed(f); });
+      if(f.from) dependents.push(function(){ selectOptions(c,f); });
+      return wrap(f,c);
+    case "chips":
+      c=el("div",{cls:"chips", role:"group", "aria-labelledby":"q-"+f.k});
+      var cur=Array.isArray(state[f.k])?state[f.k]:[];
+      function limit(){
+        if(!f.max) return;
+        var n=c.querySelectorAll("input:checked").length;
+        c.querySelectorAll("input").forEach(function(x){ x.disabled = !x.checked && n>=f.max; });
+      }
+      f.o.forEach(function(o,i){
+        var inp=el("input",{type:"checkbox", id:id+"-"+i, name:f.k, value:o});
+        inp.checked=cur.indexOf(o)>-1;
+        inp.addEventListener("change",function(){
+          var arr=[]; c.querySelectorAll("input:checked").forEach(function(x){arr.push(x.value);});
+          state[f.k]=arr; limit(); changed(f);
+        });
+        c.appendChild(el("label",{cls:"chip","for":id+"-"+i},[inp, el("span",{text:o})]));
+      });
+      limit();
+      return wrap(f,c);
+    case "words":
+      c=el("div",{cls:"words", role:"group", "aria-labelledby":"q-"+f.k});
+      var w=Array.isArray(state[f.k])?state[f.k]:["","",""];
+      [0,1,2].forEach(function(i){
+        var inp=el("input",{type:"text", id:id+"-"+i, "aria-label":"Słowo "+(i+1)});
+        inp.value=w[i]||"";
+        inp.addEventListener("input",function(){
+          var arr=[]; c.querySelectorAll("input").forEach(function(x){arr.push(x.value);});
+          state[f.k]=arr; changed(f);
+        });
+        c.appendChild(el("label",{},[el("b",{text:pad(i+1)}),inp]));
+      });
+      return wrap(f,c);
+    case "scale":
+      return renderScale(f, true);
+    case "consent":
+      var box=el("input",{type:"checkbox", id:id});
+      box.checked=state[f.k]===true;
+      box.addEventListener("change",function(){ state[f.k]=box.checked; changed(f); });
+      c=el("label",{cls:"consent","for":id},[box, el("span",{text:f.text})]);
+      return wrap(f,c);
+  }
+}
+function scaleWords(f,v){
+  if(typeof v!=="number") return "bez zdania";
+  if(v===3) return "pośrodku";
+  return STEP_WORDS[v]+": "+(v<3?f.l:f.r).toLowerCase();
+}
+function renderScale(f, withQ){
+  var id="f-"+f.k, v=state[f.k];
+  var box=el("div",{cls:"scale"+(typeof v==="number"?" touched":""), "data-k":f.k});
+  var top=el("div",{cls:"scale-top"});
+  var read=el("span",{cls:"scale-read", id:"r-"+f.k});
+  if(withQ){ top.appendChild(el("label",{cls:"q","for":id, text:f.q})); }
+  else { top.appendChild(el("span")); }
+  top.appendChild(read);
+  var ticks=el("div",{cls:"ticks","aria-hidden":"true"}); for(var i=0;i<7;i++) ticks.appendChild(el("i"));
+  var rng=el("input",{type:"range", id:id, min:"0", max:"6", step:"1"});
+  rng.value=typeof v==="number"?v:3;
+  rng.setAttribute("aria-label", (withQ?f.q+": ":"")+f.l+" do "+f.r);
+  var ends=el("div",{cls:"scale-ends","aria-hidden":"true"},[el("span",{text:f.l}), el("span",{text:f.r})]);
+  var reset=el("button",{type:"button", cls:"scale-reset", text:"wyczyść"});
+  function paint(){
+    var val=state[f.k];
+    var t=typeof val==="number";
+    box.classList.toggle("touched",t);
+    read.textContent=scaleWords(f,val);
+    rng.setAttribute("aria-valuetext", scaleWords(f,val));
+    ends.children[0].classList.toggle("lead", t&&val<3);
+    ends.children[1].classList.toggle("lead", t&&val>3);
+    reset.hidden=!t;
+    if(!t) rng.value=3;
+  }
+  rng.addEventListener("input",function(){ state[f.k]=parseInt(rng.value,10); paint(); changed(f); });
+  rng.addEventListener("pointerdown",function(){ if(typeof state[f.k]!=="number"){ state[f.k]=parseInt(rng.value,10); paint(); changed(f);} });
+  reset.addEventListener("click",function(){ delete state[f.k]; paint(); changed(f); rng.focus(); });
+  box.appendChild(top);
+  box.appendChild(el("div",{cls:"track"},[ticks,rng]));
+  box.appendChild(ends);
+  var foot=el("div",{cls:"scale-top"},[el("span"),reset]);
+  box.appendChild(foot);
+  paint();
+  return box;
+}
+
+var dependents=[];
+var form=document.getElementById("form");
+var toc=document.getElementById("toc");
+var io=null;
+
+function build(){
+dependents=[];
+form.innerHTML=""; toc.innerHTML="";
+S.forEach(function(sec, si){
+  var s=el("section",{cls:"part", id:sec.id, "aria-labelledby":"h-"+sec.id});
+  s.appendChild(el("div",{cls:"part-head"},[
+    el("div",{cls:"part-num", html:"<b>"+pad(si+1)+"</b> / "+pad(S.length)}),
+    el("h2",{id:"h-"+sec.id, text:sec.title}),
+    el("p",{cls:"part-intro", text:sec.intro})
+  ]));
+  var fs=el("div",{cls:"fields"});
+  sec.fields.forEach(function(f){
+    if(f.row){ var r=el("div",{cls:"row2"}); f.row.forEach(function(g){ r.appendChild(renderField(g)); }); fs.appendChild(r); }
+    else if(f.scales){ var w=el("div",{cls:"scales"}); f.scales.forEach(function(g){ w.appendChild(renderScale(g,false)); }); fs.appendChild(w); }
+    else fs.appendChild(renderField(f));
+  });
+  s.appendChild(fs);
+  form.appendChild(s);
+
+  var a=el("a",{href:"#"+sec.id, id:"t-"+sec.id},[el("span",{cls:"n",text:pad(si+1)}), el("span",{text:sec.nav}), el("span",{cls:"c", id:"tc-"+sec.id})]);
+  toc.appendChild(el("li",{},[a]));
+});
+if(io){ io.disconnect(); document.querySelectorAll("section.part").forEach(function(s){ io.observe(s); }); }
+}
+build();
+
+/* ---------- progress ---------- */
+function progress(){
+  var tot=0, done=0;
+  S.forEach(function(sec){
+    var fl=allFields(sec), d=0;
+    fl.forEach(function(f){ if(answered(f)) d++; });
+    tot+=fl.length; done+=d;
+    var c=document.getElementById("tc-"+sec.id);
+    c.textContent=d+"/"+fl.length;
+    document.getElementById("t-"+sec.id).classList.toggle("done", d===fl.length);
+  });
+  var p=Math.round(done/tot*100);
+  document.getElementById("pct").textContent=p+"%";
+  document.getElementById("pbar").style.width=p+"%";
+}
+function changed(f){
+  persist(); progress();
+  if(f && f.k){ var w=document.querySelector('.field[data-k="'+f.k+'"]'); if(w && w.classList.contains("invalid") && valid(f)){ w.classList.remove("invalid"); var e=w.querySelector(".err"); if(e) e.remove(); } }
+  if(f && f.k==="uslugi") dependents.forEach(function(fn){ fn(); });
+  document.getElementById("send").hidden=true;
+  document.getElementById("sent").hidden=true;
+}
+progress();
+
+/* active section in TOC */
+if("IntersectionObserver" in window){
+  io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        toc.querySelectorAll("a").forEach(function(x){x.classList.remove("on");});
+        var t=document.getElementById("t-"+en.target.id); if(t) t.classList.add("on");
+      }
+    });
+  },{rootMargin:"-40% 0px -55% 0px"});
+  document.querySelectorAll("section.part").forEach(function(s){ io.observe(s); });
+}
+
+/* ---------- validation ---------- */
+function valid(f){
+  var v=state[f.k];
+  if(f.t==="email") return typeof v==="string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  return answered(f);
+}
+var MSG={imie:"Podaj imię i nazwisko.", email:"Podaj adres e-mail, na który mogę odpisać.", zgoda:"Zaznacz zgodę, żebym mógł wykorzystać odpowiedzi."};
+function validate(){
+  var first=null;
+  ["imie","email","zgoda"].forEach(function(k){
+    var f=findField(k), w=document.querySelector('.field[data-k="'+k+'"]');
+    var old=w.querySelector(".err"); if(old) old.remove();
+    if(!valid(f)){
+      w.classList.add("invalid");
+      w.appendChild(el("p",{cls:"err",text:MSG[k]}));
+      if(!first) first=w;
+    } else w.classList.remove("invalid");
+  });
+  return first;
+}
+
+/* ---------- compose ---------- */
+function fmt(f){
+  var v=state[f.k];
+  if(f.t==="scale") return typeof v==="number" ? (v+1)+"/7 · "+scaleWords(f,v) : "bez zdania";
+  if(f.t==="chips") return (Array.isArray(v)&&v.length)? v.join(", ") : "—";
+  if(f.t==="words") return (Array.isArray(v)&&v.some(function(x){return x&&x.trim();})) ? v.filter(function(x){return x&&x.trim();}).map(function(x){return x.trim();}).join(" · ") : "—";
+  if(f.t==="consent") return v===true?"tak":"nie";
+  if(f.t==="date" && v){ var p=v.split("-"); return p.length===3? p[2]+"."+p[1]+"."+p[0] : v; }
+  return (typeof v==="string"&&v.trim())? v.trim() : "—";
+}
+function compose(){
+  var name=(state.imie||"").trim();
+  var lines=[];
+  var now=new Date();
+  lines.push("# Ankieta strategiczna marki"+(name?" · "+name:""));
+  lines.push("Wysłano: "+pad(now.getDate())+"."+pad(now.getMonth()+1)+"."+now.getFullYear());
+  S.forEach(function(sec,si){
+    lines.push("");
+    lines.push("## "+pad(si+1)+" "+sec.title);
+    sec.fields.forEach(function(f){
+      if(f.scales){
+        lines.push("");
+        f.scales.forEach(function(g){ lines.push("- "+g.l+" ↔ "+g.r+": "+fmt(Object.assign({t:"scale"},g))); });
+        lines.push("");
+        return;
+      }
+      (f.row||[f]).forEach(function(g){
+        var label = g.t==="scale" ? g.q+" ("+g.l+" ↔ "+g.r+")" : g.q;
+        var val=fmt(g);
+        if(g.t==="textarea" && val!=="—" && val.indexOf("\n")>-1) lines.push("**"+label+":**\n"+val);
+        else lines.push("**"+label+":** "+val);
+      });
+    });
+  });
+  return lines.join("\n").replace(/\n{3,}/g,"\n\n");
+}
+function subject(){
+  var name=(state.imie||"").trim();
+  return "Ankieta strategiczna marki"+(name?" · "+name:"");
+}
+
+/* ---------- clipboard ---------- */
+function copyText(text, fallbackEl){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    return navigator.clipboard.writeText(text).then(function(){return true;},function(){ return selectFallback(fallbackEl); });
+  }
+  return Promise.resolve(selectFallback(fallbackEl));
+}
+function selectFallback(node){
+  if(!node) return false;
+  try{
+    var d=node.closest("details"); if(d) d.open=true;
+    if(node.select){ node.focus(); node.select(); }
+    else { var r=document.createRange(); r.selectNodeContents(node); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+    return document.execCommand && document.execCommand("copy");
+  }catch(e){ return false; }
+}
+
+/* ---------- actions ---------- */
+var status=document.getElementById("status");
+var sendStatus=document.getElementById("sendStatus");
+var preview=document.getElementById("preview");
+var mailto=document.getElementById("mailto");
+var body="";
+
+var prepareBtn=document.getElementById("prepare");
+var prepareLabel=document.getElementById("prepareLabel");
+var sendBox=document.getElementById("send");
+var sentBox=document.getElementById("sent");
+var sentStatus=document.getElementById("sentStatus");
+function smooth(){ return matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"; }
+
+function buildMailto(){
+  var full="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject())+"&body="+encodeURIComponent(body);
+  if(full.length>1900){
+    full="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject())+"&body="+encodeURIComponent("Dzień dobry,\n\nponiżej moje odpowiedzi z ankiety.\n\n[Wklej tutaj odpowiedzi: Ctrl+V lub Cmd+V]\n");
+  }
+  mailto.href=full;
+}
+function showFallback(msg){
+  buildMailto();
+  status.className="status bad";
+  status.textContent=msg;
+  sendStatus.className="status"; sendStatus.textContent="";
+  sentBox.hidden=true;
+  sendBox.hidden=false;
+  sendBox.scrollIntoView({behavior:smooth(), block:"start"});
+}
+function showSent(){
+  status.className="status ok";
+  status.textContent="Wysłane.";
+  sendBox.hidden=true;
+  sentBox.hidden=false;
+  sentStatus.textContent="";
+  sentBox.scrollIntoView({behavior:smooth(), block:"start"});
+}
+
+var sending=false;
+prepareBtn.addEventListener("click",function(){
+  if(sending) return;
+  var bad=validate();
+  if(bad){
+    status.className="status bad";
+    status.textContent="Uzupełnij zaznaczone pola, a potem wróć tutaj.";
+    bad.scrollIntoView({behavior:smooth(), block:"center"});
+    var i=bad.querySelector("input,select,textarea"); if(i) setTimeout(function(){ i.focus({preventScroll:true}); },400);
+    return;
+  }
+  body=compose();
+  preview.value=body;
+  if(!WEB3FORMS_KEY || !window.fetch){ showFallback("Wyślij odpowiedzi mailem, to zajmie chwilę:"); return; }
+
+  sending=true;
+  prepareBtn.disabled=true;
+  prepareLabel.textContent="Wysyłanie…";
+  status.className="status"; status.textContent="";
+  var name=(state.imie||"").trim();
+  var payload={
+    access_key: WEB3FORMS_KEY,
+    subject: subject(),
+    from_name: "Ankieta KOSMΛ" + (name?" · "+name:""),
+    replyto: (state.email||"").trim(),
+    name: name,
+    email: (state.email||"").trim(),
+    message: body,
+    botcheck: document.getElementById("botcheck").checked
+  };
+  fetch(WEB3FORMS_URL,{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body:JSON.stringify(payload)
+  }).then(function(r){
+    return r.json().then(function(j){ return j; },function(){ return {success:false}; });
+  }).then(function(j){
+    if(j && j.success){ showSent(); }
+    else { showFallback("Nie udało się wysłać automatycznie. Wyślij odpowiedzi mailem, to zajmie chwilę:"); }
+  },function(){
+    showFallback("Nie udało się wysłać automatycznie. Wyślij odpowiedzi mailem, to zajmie chwilę:");
+  }).then(function(){
+    sending=false;
+    prepareBtn.disabled=false;
+    prepareLabel.textContent="Wyślij odpowiedzi";
+  });
+});
+
+mailto.addEventListener("click",function(){
+  copyText(body, preview).then(function(ok){
+    sendStatus.className="status"+(ok?" ok":"");
+    sendStatus.textContent = ok
+      ? "Odpowiedzi są w schowku. Jeśli otworzyła się nowa wiadomość, sprawdź treść i kliknij Wyślij."
+      : "Nie udało się skopiować automatycznie. Otwórz podgląd poniżej, zaznacz tekst i skopiuj go ręcznie.";
+  });
+});
+document.getElementById("copy").addEventListener("click",function(){
+  copyText(body, preview).then(function(ok){
+    sendStatus.className="status"+(ok?" ok":"");
+    sendStatus.textContent = ok
+      ? "Skopiowano. Wklej odpowiedzi do wiadomości na adres "+EMAIL+"."
+      : "Nie udało się skopiować automatycznie. Podgląd poniżej jest zaznaczony, skopiuj go ręcznie.";
+  });
+});
+document.getElementById("copySent").addEventListener("click",function(){
+  copyText(body, preview).then(function(ok){
+    sentStatus.className="status"+(ok?" ok":"");
+    sentStatus.textContent = ok ? "Skopiowano." : "Nie udało się skopiować automatycznie.";
+  });
+});
+document.getElementById("copyAddr").addEventListener("click",function(){
+  copyText(EMAIL, document.getElementById("addr")).then(function(ok){
+    sendStatus.className="status"+(ok?" ok":"");
+    sendStatus.textContent = ok ? "Adres skopiowany." : "Zaznacz adres i skopiuj go ręcznie.";
+  });
+});
+
+/* download a copy: the downloads capability inside Claude, a plain file link everywhere else */
+var dl=null;
+var IN_CLAUDE = !!(window.claude && typeof window.claude.use==="function");
+var dlBtns=[].slice.call(document.querySelectorAll("[data-download]"));
+function showDl(on){ dlBtns.forEach(function(b){ b.hidden=!on; }); }
+if(IN_CLAUDE){
+  window.claude.use("downloads").then(function(ns){ if(ns){ dl=ns; showDl(true); } }).catch(function(){});
+} else {
+  showDl(true);
+}
+function fileName(){
+  var n=(state.imie||"odpowiedzi").trim().toLowerCase().replace(/ł/g,"l").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  return "ankieta-marki-"+(n||"odpowiedzi")+".md";
+}
+dlBtns.forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var out = sentBox.hidden ? sendStatus : sentStatus;
+    if(dl){
+      dl.save({filename:fileName(), data:body}).then(function(){
+        out.className="status ok"; out.textContent="Plik zapisany.";
+      },function(err){
+        var code=err&&err.code;
+        if(code==="declined") return;
+        if(code==="unavailable"||code==="not_granted"||code==="capability_disabled"||code==="capability_removed"){ showDl(false); }
+        out.className="status"; out.textContent="Nie udało się zapisać pliku. Skorzystaj z przycisku Kopiuj odpowiedzi.";
+      });
+      return;
+    }
+    try{
+      var url=URL.createObjectURL(new Blob([body],{type:"text/markdown;charset=utf-8"}));
+      var a=document.createElement("a"); a.href=url; a.download=fileName();
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); },1000);
+    }catch(e){
+      out.className="status"; out.textContent="Nie udało się zapisać pliku. Skorzystaj z przycisku Kopiuj odpowiedzi.";
+    }
+  });
+});
+
+/* reset with in-page confirmation */
+var resetRow=document.getElementById("resetRow");
+function showReset(){
+  resetRow.innerHTML="";
+  var b=el("button",{type:"button",cls:"btn quiet",id:"reset",text:"Wyczyść formularz"});
+  b.addEventListener("click",askReset);
+  resetRow.appendChild(b);
+}
+function askReset(){
+  resetRow.innerHTML="";
+  var yes=el("button",{type:"button",cls:"btn quiet",text:"Tak, wyczyść wszystko"});
+  var no=el("button",{type:"button",cls:"btn quiet",text:"Anuluj"});
+  resetRow.appendChild(el("span",{text:"Usunąć wszystkie odpowiedzi z tej przeglądarki?"}));
+  resetRow.appendChild(yes); resetRow.appendChild(no);
+  yes.addEventListener("click",function(){
+    state={}; try{ localStorage.removeItem(STORE); }catch(e){}
+    build(); progress();
+    document.getElementById("send").hidden=true;
+    document.getElementById("sent").hidden=true;
+    status.className="status"; status.textContent="Formularz wyczyszczony.";
+    showReset();
+    window.scrollTo({top:0});
+  });
+  no.addEventListener("click",showReset);
+  no.focus();
+}
+showReset();
+
+form.addEventListener("submit",function(e){ e.preventDefault(); });
+})();
+</script>
+
+</body>
+</html>
