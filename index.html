@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="description" content="Ankieta strategiczna marki · KOSMΛ Design Studio">
+<meta name="description" content="Brand strategy brief · KOSMΛ Design Studio">
 <meta name="theme-color" content="#0a0a0a">
 <style>
 html{-webkit-text-size-adjust:100%}
@@ -13,7 +13,7 @@ body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
-<title>Ankieta strategiczna marki</title>
+<title>Brand Strategy Brief · KOSMΛ</title>
 <style>
 /* Layout: one reading column (max 720px) under a sticky progress bar; on wide screens a sticky section index sits to the left.
    Single dark theme, colours and type from KOSMΛ DS: Quablo for headlines, Geist for UI and descriptions, Geist Mono in text fields. */
@@ -98,6 +98,13 @@ main{min-width:0}
 
 /* hero */
 .hero{padding-block:72px 40px;display:grid;gap:28px;border-bottom:1px solid var(--line)}
+.lang{justify-self:start;display:inline-grid;grid-template-columns:1fr 1fr;gap:4px;height:48px;padding:4px;border:2px solid var(--neutral-2);border-radius:14px}
+.lang button{min-width:78px;padding:0 18px;border:0;border-radius:9px;background:transparent;color:var(--ink);font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.04em;line-height:1;cursor:pointer;transition:background-color .2s}
+.lang button:hover{background:var(--raise)}
+.lang button[aria-pressed="true"]{background:var(--neutral-2)}
+.lang button:focus-visible{outline:2px solid var(--dot);outline-offset:2px}
+form{margin:0}
+.contact{display:grid;gap:34px}
 .eyebrow{font-family:var(--font-mono);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot);flex:none}
 h1{color:var(--ink);font-family:var(--font-display);font-size:var(--t-xxl);font-weight:500;line-height:1.08;letter-spacing:-.005em;margin:0;text-wrap:balance;max-width:16ch}
@@ -253,37 +260,41 @@ footer svg{height:12px;width:auto;display:block}
     <a class="logo" href="#top" aria-label="KOSMΛ Design Studio">
       <svg width="189" height="32" viewBox="0 0 189 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M54.8577 4.668C53.4025 3.20499 51.7059 2.05501 49.8197 1.25206C47.8659 0.419621 45.788 0 43.6492 0C41.5103 0 39.4324 0.421889 37.4764 1.25206C35.588 2.05501 33.8936 3.20499 32.4361 4.668C30.9809 6.131 29.837 7.8367 29.0384 9.7352C28.2104 11.7017 27.793 13.7885 27.793 15.941C27.793 18.0936 28.2126 20.1804 29.0384 22.1469C29.837 24.0454 30.9809 25.7488 32.4361 27.2141C33.8913 28.6771 35.588 29.8271 37.4764 30.63C39.4324 31.4625 41.5081 31.8821 43.6492 31.8821C45.7903 31.8821 47.8659 31.4602 49.8197 30.63C51.7081 29.8271 53.4025 28.6771 54.8577 27.2141C56.3129 25.7511 57.4568 24.0454 58.2555 22.1469C59.0812 20.1804 59.5009 18.0936 59.5009 15.941C59.5009 13.7885 59.0812 11.7017 58.2555 9.7352C57.4568 7.8367 56.3129 6.13327 54.8577 4.668ZM43.6469 26.9895C37.5892 26.9895 32.6595 22.0335 32.6595 15.941C32.6595 9.84861 37.5892 4.89255 43.6469 4.89255C49.7047 4.89255 54.6344 9.84861 54.6344 15.941C54.6344 22.0335 49.7047 26.9895 43.6469 26.9895Z" fill="#CFCFCF"/><path d="M22.9473 6.30859H15.9532L6.74363 15.5561L5.51403 16.7923H4.94322V6.30859H0V25.5726H4.94322V21.7597L7.57163 21.7552L10.3422 18.9675L16.8873 25.5726H23.8655L13.8415 15.4518L22.9473 6.30859Z" fill="#CFCFCF"/><path d="M72.3518 19.2398C72.3518 20.848 73.9243 21.8936 78.9375 21.8936C83.5242 21.8936 84.6433 21.1701 84.6433 19.9634C84.6433 18.5684 83.7905 18.328 78.1365 17.9537C70.4295 17.4184 67.016 15.8624 67.016 11.6277C67.016 7.63334 71.3094 5.83691 77.8951 5.83691C85.2276 5.83691 89.4421 8.06204 89.6023 12.324H83.8423C83.8423 10.6342 82.0036 9.99229 77.735 9.99229C73.4663 9.99229 72.7759 10.6614 72.7759 11.7071C72.7759 12.8865 73.6829 13.2631 78.8563 13.6918C85.8435 14.2271 90.4032 14.7102 90.4032 19.723C90.4032 24.7357 85.8977 26.049 79.1225 26.049C71.4155 26.049 66.8287 24.2798 66.5625 19.2398H72.3495H72.3518Z" fill="#CFCFCF"/><path d="M153.01 6.37305H145.382L135.57 25.5146H141.518L149.197 10.2608L156.875 25.5146H162.795L153.01 6.37305Z" fill="#CFCFCF"/><path d="M166.656 7.16172H165.649V9.06015H164.582V7.16172H163.574V6.37305H166.656V7.16172Z" fill="#CFCFCF"/><path d="M171.072 6.37305V9.06015H170.021V7.60437L169.143 8.70478H169.091L168.213 7.60437V9.06015H167.184V6.37305H168.349L169.143 7.43604L169.946 6.37305H171.075H171.072Z" fill="#CFCFCF"/><path d="M124.55 25.516V11.5175L123.962 11.3742L116.598 25.516H111.685L104.348 11.3745L103.76 11.5175V25.516H98.6484V6.37598H107.097L114.155 19.8548L121.213 6.37598H129.634V25.516H124.55Z" fill="#CFCFCF"/></svg>
     </a>
-    <div class="progress-label" aria-live="polite">Wypełniono <b id="pct">0%</b></div>
+    <div class="progress-label" aria-live="polite"><span data-i18n="progress">Progress</span> <b id="pct">0%</b></div>
   </div>
   <div class="progress-line"><i id="pbar"></i></div>
 </div>
 
 <div class="page" id="top">
-  <nav class="toc" aria-label="Części ankiety"><ol id="toc"></ol></nav>
+  <nav class="toc" aria-label="Brief sections" data-i18n-aria="tocLabel"><ol id="toc"></ol></nav>
 
   <main>
     <header class="hero">
-      <div class="eyebrow">Brief strategiczny · nowa marka</div>
-      <h1>Zanim powstanie logo, poznajmy Twoją firmę.</h1>
-      <p class="lede">Każda firma ma swoją historię, swoich ludzi i powody, dla których klienci do niej wracają. Ta ankieta pomoże mi je uchwycić i zamienić w strategię oraz kierunek wizualny Twojej marki.</p>
-      <p>Nie ma tu złych odpowiedzi. Jeśli czegoś jeszcze nie wiesz, po prostu pomiń pytanie. Porozmawiamy o tym na spotkaniu.</p>
+      <div class="lang" role="group" aria-label="Language" data-i18n-aria="langGroup">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">ENG</button>
+        <button type="button" data-lang="pl" aria-pressed="false" lang="pl">PL</button>
+      </div>
+      <div class="eyebrow" data-i18n="eyebrow">Strategy brief · new brand</div>
+      <h1 data-i18n="h1">Before the logo, let's get to know your company.</h1>
+      <p class="lede" data-i18n="lede">Every company has its own story, its own people and its reasons why clients keep coming back. This brief will help me capture them and turn them into a strategy and a visual direction for your brand.</p>
+      <p data-i18n="intro2">There are no wrong answers. If you don't know something yet, just skip the question. We'll talk it through when we meet.</p>
       <ul class="facts">
-        <li><b>~20</b> minut</li>
-        <li><b>9</b> części</li>
-        <li>Szkic zapisuje się w tej przeglądarce</li>
+        <li data-i18n-html="f1"><b>~20</b> minutes</li>
+        <li data-i18n-html="f2"><b>9</b> parts</li>
+        <li data-i18n="f3">Your draft is saved in this browser</li>
       </ul>
     </header>
 
-    <form id="form" novalidate></form>
+    <div id="form"></div>
 
     <div class="submit" id="submit">
       <div class="part-head">
-        <div class="part-num">Gotowe?</div>
-        <h2>Wyślij odpowiedzi</h2>
-        <p class="part-intro">Odpowiedzi trafią prosto do Mika ze studia KOSMΛ. Odezwę się, gdy tylko je przeczytam.</p>
+        <div class="part-num" data-i18n="readyNum">Ready?</div>
+        <h2 data-i18n="sendH2">Send your answers</h2>
+        <p class="part-intro" data-i18n="sendIntro">Your answers go straight to Mik at KOSMΛ studio. I'll get back to you as soon as I've read them.</p>
       </div>
       <div class="submit-row">
-        <button type="button" class="btn cta" id="prepare"><span id="prepareLabel">Wyślij odpowiedzi</span>
+        <button type="button" class="btn cta" id="prepare"><span id="prepareLabel" data-i18n="send">Send answers</span>
           <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
         </button>
       </div>
@@ -291,40 +302,40 @@ footer svg{height:12px;width:auto;display:block}
       <p class="status" id="status" role="status"></p>
 
       <div class="sent" id="sent" hidden>
-        <h3>Dziękuję, odpowiedzi dotarły.</h3>
-        <p>Przeczytam je i wrócę do Ciebie z pierwszymi wnioskami oraz propozycją dalszych kroków. Jeśli chcesz, zachowaj kopię swoich odpowiedzi.</p>
+        <h3 data-i18n="sentH3">Thank you, your answers have arrived.</h3>
+        <p data-i18n="sentP">I'll read them and come back to you with first insights and a proposal for next steps. If you like, keep a copy of your answers.</p>
         <div class="submit-row">
-          <button type="button" class="btn" data-download hidden>Pobierz kopię (.md)</button>
-          <button type="button" class="btn" id="copySent">Kopiuj odpowiedzi</button>
+          <button type="button" class="btn" data-download hidden data-i18n="dlCopy">Download a copy (.md)</button>
+          <button type="button" class="btn" id="copySent" data-i18n="copyAnswers">Copy answers</button>
         </div>
         <p class="status" id="sentStatus" role="status"></p>
       </div>
 
       <div class="send" id="send" hidden>
-        <h3>Wyślij odpowiedzi mailem</h3>
+        <h3 data-i18n="mailH3">Send your answers by email</h3>
         <ol>
-          <li><span>Kliknij <b>Otwórz e-mail</b>. Odpowiedzi trafią do schowka, a program pocztowy otworzy nową wiadomość.</span></li>
-          <li><span>Jeśli treść nie pojawiła się w wiadomości, wklej ją (Ctrl+V lub Cmd+V) i wyślij.</span></li>
-          <li><span>Program pocztowy się nie otworzył? Skopiuj odpowiedzi i wyślij je na adres poniżej.</span></li>
+          <li><span data-i18n-html="mailLi1">Click <b>Open email</b>. Your answers are copied to the clipboard and your email app opens a new message.</span></li>
+          <li><span data-i18n="mailLi2">If the text doesn't appear in the message, paste it (Ctrl+V or Cmd+V) and send.</span></li>
+          <li><span data-i18n="mailLi3">Email app didn't open? Copy your answers and send them to the address below.</span></li>
         </ol>
         <div class="submit-row">
-          <a class="btn cta" id="mailto" href="mailto:mik@kosma.design">Otwórz e-mail</a>
-          <button type="button" class="btn" id="copy">Kopiuj odpowiedzi</button>
-          <button type="button" class="btn" data-download hidden>Pobierz plik .md</button>
+          <a class="btn cta" id="mailto" href="mailto:mik@kosma.design" data-i18n="openMail">Open email</a>
+          <button type="button" class="btn" id="copy" data-i18n="copyAnswers">Copy answers</button>
+          <button type="button" class="btn" data-download hidden data-i18n="dlFile">Download .md file</button>
         </div>
         <div class="addr">
           <code id="addr">mik@kosma.design</code>
-          <button type="button" class="btn" id="copyAddr">Kopiuj adres</button>
+          <button type="button" class="btn" id="copyAddr" data-i18n="copyAddr">Copy address</button>
         </div>
         <p class="status" id="sendStatus" role="status"></p>
         <details>
-          <summary>Podgląd treści wiadomości</summary>
-          <textarea class="preview" id="preview" readonly aria-label="Treść wiadomości"></textarea>
+          <summary data-i18n="previewSummary">Preview the message</summary>
+          <textarea class="preview" id="preview" readonly aria-label="Message text" data-i18n-aria="previewAria"></textarea>
         </details>
       </div>
 
       <div class="reset-row" id="resetRow">
-        <button type="button" class="btn quiet" id="reset">Wyczyść formularz</button>
+        <button type="button" class="btn quiet" id="reset" data-i18n="resetBtn">Clear the form</button>
       </div>
     </div>
 
@@ -343,116 +354,219 @@ var STORE = "kosma-brief-v2";
 var WEB3FORMS_KEY = "60def38b-9ea8-48f6-8671-d5b9d3622979";
 var WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
-/* ---------- schema ---------- */
+/* ---------- schema ----------
+   Every visible text is [polski, English]. Answers are stored under the Polish option text,
+   so a draft survives switching languages. Fields with c:1 are the contact block that browser
+   autofill may fill; every other field sits in its own <form autocomplete="off">. */
 var S = [
- {id:"firma", title:"Ty i Twoja firma", nav:"Firma", intro:"Kilka podstaw o Tobie i o firmie. To punkt wyjścia całej strategii.", fields:[
-  {row:[
-   {k:"imie", t:"text", q:"Imię i nazwisko", req:true, ph:"np. Anna Kowalska", ac:"name"},
-   {k:"email", t:"email", q:"E-mail", req:true, ph:"twoj@adres.pl", ac:"email"}
+ {id:"firma", title:["Ty i Twoja firma","You and your company"], nav:["Firma","Company"], intro:["Kilka podstaw o Tobie i o firmie. To punkt wyjścia całej strategii.","A few basics about you and your company. This is the starting point for the whole strategy."], fields:[
+  {contact:true, row:[
+   {k:"imie", c:1, t:"text", q:["Imię i nazwisko","Full name"], req:true, ph:["np. Anna Kowalska","e.g. Anna Smith"], ac:"name"},
+   {k:"email", c:1, t:"email", q:["E-mail","Email"], req:true, ph:["twoj@adres.pl","you@company.com"], ac:"email"}
+  ]},
+  {contact:true, row:[
+   {k:"tel", c:1, t:"tel", q:["Telefon","Phone"], ph:["+48","+00 000 000 000"], ac:"tel"},
+   {k:"rola", c:1, t:"select", q:["Twoja rola w firmie","Your role in the company"], o:[["Właściciel / założyciel","Owner / founder"],["Wspólnik","Partner"],["Zarząd","Board / management"],["Marketing / komunikacja","Marketing / communications"],["Inna","Other"]]}
   ]},
   {row:[
-   {k:"tel", t:"tel", q:"Telefon", ph:"+48", ac:"tel"},
-   {k:"rola", t:"select", q:"Twoja rola w firmie", o:["Właściciel / założyciel","Wspólnik","Zarząd","Marketing / komunikacja","Inna"]}
+   {k:"branza", t:"text", q:["Branża","Industry"], ph:["np. architektura wnętrz, e-commerce, IT","e.g. interior design, e-commerce, IT"]},
+   {k:"region", t:"text", q:["Miasto lub region działania","City or region you operate in"], ph:["np. Kraków, cała Polska","e.g. Berlin, all of Europe"]}
   ]},
   {row:[
-   {k:"branza", t:"text", q:"Branża", ph:"np. architektura wnętrz, e-commerce, IT"},
-   {k:"region", t:"text", q:"Miasto lub region działania", ph:"np. Kraków, cała Polska"}
+   {k:"pracownicy", t:"select", q:["Liczba pracowników","Number of employees"], o:[["Tylko ja","Just me"],["2–5 osób","2–5 people"],["6–10 osób","6–10 people"],["11–50 osób","11–50 people"],["51–250 osób","51–250 people"],["Ponad 250 osób","More than 250 people"]]},
+   {k:"etap", t:"select", q:["Na jakim etapie jest firma?","What stage is the company at?"], o:[["Dopiero startuje","Just starting out"],["Działa do 2 lat","Up to 2 years in business"],["Działa 2–5 lat","2–5 years in business"],["Działa ponad 5 lat","Over 5 years in business"],["Przechodzi rebranding","Going through a rebrand"]]}
   ]},
-  {row:[
-   {k:"pracownicy", t:"select", q:"Liczba pracowników", o:["Tylko ja","2–5 osób","6–10 osób","11–50 osób","51–250 osób","Ponad 250 osób"]},
-   {k:"etap", t:"select", q:"Na jakim etapie jest firma?", o:["Dopiero startuje","Działa do 2 lat","Działa 2–5 lat","Działa ponad 5 lat","Przechodzi rebranding"]}
-  ]},
-  {k:"forma", t:"select", q:"Forma prawna", o:["Jednoosobowa działalność gospodarcza","Spółka cywilna","Spółka z o.o.","Inna spółka (S.A., komandytowa, jawna)","Fundacja lub stowarzyszenie","Jeszcze nie wiem"]},
-  {k:"historia", t:"textarea", q:"Jak powstała firma i dlaczego?", help:"Krótka historia: kto, kiedy, z jakiego powodu. Co chcesz robić inaczej niż inni?"}
+  {k:"forma", t:"select", q:["Forma prawna","Legal form"], o:[["Jednoosobowa działalność gospodarcza","Sole proprietorship"],["Spółka cywilna","Civil-law partnership"],["Spółka z o.o.","Limited liability company"],["Inna spółka (S.A., komandytowa, jawna)","Other company type (joint-stock, partnership)"],["Fundacja lub stowarzyszenie","Foundation or association"],["Jeszcze nie wiem","Not sure yet"]]},
+  {k:"historia", t:"textarea", q:["Jak powstała firma i dlaczego?","How and why did the company start?"], help:["Krótka historia: kto, kiedy, z jakiego powodu. Co chcesz robić inaczej niż inni?","A short story: who, when and why. What do you want to do differently from others?"]}
  ]},
- {id:"oferta", title:"Oferta i rynek", nav:"Oferta", intro:"Co firma sprzedaje, komu i w jaki sposób.", fields:[
-  {k:"co", t:"chips", q:"Co sprzedajecie?", o:["Usługi","Produkty fizyczne","Produkty cyfrowe / oprogramowanie","Subskrypcje","Szkolenia i wiedza","Gastronomię lub noclegi","Inne"]},
-  {k:"glowna", t:"text", q:"Najważniejszy produkt lub usługa", help:"Ta jedna rzecz, z której marka ma być znana najbardziej.", ph:"np. projekty wnętrz mieszkań pod klucz"},
-  {k:"komu", t:"chips", q:"Komu sprzedajecie?", o:["Klientom indywidualnym (B2C)","Firmom (B2B)","Instytucjom publicznym","Organizacjom społecznym"]},
+ {id:"oferta", title:["Oferta i rynek","Offer and market"], nav:["Oferta","Offer"], intro:["Co firma sprzedaje, komu i w jaki sposób.","What the company sells, to whom and how."], fields:[
+  {k:"co", t:"chips", q:["Co sprzedajecie?","What do you sell?"], o:[["Usługi","Services"],["Produkty fizyczne","Physical products"],["Produkty cyfrowe / oprogramowanie","Digital products / software"],["Subskrypcje","Subscriptions"],["Szkolenia i wiedza","Training and know-how"],["Gastronomię lub noclegi","Food or accommodation"],["Inne","Other"]]},
+  {k:"glowna", t:"text", q:["Najważniejszy produkt lub usługa","Your key product or service"], help:["Ta jedna rzecz, z której marka ma być znana najbardziej.","The one thing the brand should be best known for."], ph:["np. projekty wnętrz mieszkań pod klucz","e.g. turnkey apartment interior design"]},
+  {k:"komu", t:"chips", q:["Komu sprzedajecie?","Who do you sell to?"], o:[["Klientom indywidualnym (B2C)","Consumers (B2C)"],["Firmom (B2B)","Businesses (B2B)"],["Instytucjom publicznym","Public institutions"],["Organizacjom społecznym","Non-profit organisations"]]},
   {row:[
-   {k:"zasieg", t:"select", q:"Zasięg działania", o:["Lokalny","Regionalny","Cała Polska","Europa","Cały świat"]},
-   {k:"model", t:"select", q:"Model rozliczeń", o:["Jednorazowa sprzedaż","Projekty / zlecenia","Abonament / subskrypcja","Prowizja","Model mieszany","Jeszcze nie wiem"]}
+   {k:"zasieg", t:"select", q:["Zasięg działania","Market reach"], o:[["Lokalny","Local"],["Regionalny","Regional"],["Cała Polska","Nationwide"],["Europa","Europe"],["Cały świat","Worldwide"]]},
+   {k:"model", t:"select", q:["Model rozliczeń","Pricing model"], o:[["Jednorazowa sprzedaż","One-off sales"],["Projekty / zlecenia","Projects / commissions"],["Abonament / subskrypcja","Retainer / subscription"],["Prowizja","Commission"],["Model mieszany","Mixed model"],["Jeszcze nie wiem","Not sure yet"]]}
   ]},
-  {k:"sprzedaz", t:"chips", q:"Gdzie sprzedajecie?", o:["Sklep internetowy","Lokal stacjonarny","Sprzedaż bezpośrednia","Marketplace'y (Allegro, Amazon, Etsy)","Dystrybutorzy i partnerzy","Polecenia","Przetargi"]},
-  {k:"segment", t:"scale", q:"Pozycja cenowa", l:"Budżetowa", r:"Premium"},
-  {k:"wyroznik", t:"textarea", q:"Co Was wyróżnia na tle konkurencji?", help:"Konkretnie: liczby, specjalizacja, sposób pracy, historia klienta, którą lubisz opowiadać.", ph:"np. Odpowiadamy w 2 godziny, a każdy projekt prowadzi jedna osoba od początku do końca…"},
+  {k:"sprzedaz", t:"chips", q:["Gdzie sprzedajecie?","Where do you sell?"], o:[["Sklep internetowy","Online shop"],["Lokal stacjonarny","Physical location"],["Sprzedaż bezpośrednia","Direct sales"],["Marketplace'y (Allegro, Amazon, Etsy)","Marketplaces (Amazon, Etsy, Allegro)"],["Dystrybutorzy i partnerzy","Distributors and partners"],["Polecenia","Referrals"],["Przetargi","Tenders"]]},
+  {k:"segment", t:"scale", q:["Pozycja cenowa","Price positioning"], l:["Budżetowa","Budget"], r:["Premium","Premium"]},
+  {k:"wyroznik", t:"textarea", q:["Co Was wyróżnia na tle konkurencji?","What sets you apart from the competition?"], help:["Konkretnie: liczby, specjalizacja, sposób pracy, historia klienta, którą lubisz opowiadać.","Be specific: numbers, specialisation, the way you work, a client story you like to tell."], ph:["np. Odpowiadamy w 2 godziny, a każdy projekt prowadzi jedna osoba od początku do końca…","e.g. We reply within 2 hours, and one person leads every project from start to finish…"]},
   {row:[
-   {k:"lubie", t:"textarea", q:"Marki, które cenisz", help:"Z Twojej branży lub spoza niej. I za co."},
-   {k:"nielubie", t:"textarea", q:"Marki, których nie chcesz przypominać", help:"I co Cię w nich odpycha."}
+   {k:"lubie", t:"textarea", q:["Marki, które cenisz","Brands you admire"], help:["Z Twojej branży lub spoza niej. I za co.","From your industry or beyond. And why."]},
+   {k:"nielubie", t:"textarea", q:["Marki, których nie chcesz przypominać","Brands you don't want to resemble"], help:["I co Cię w nich odpycha.","And what puts you off about them."]}
   ]}
  ]},
- {id:"klienci", title:"Klienci", nav:"Klienci", intro:"Dla kogo jest ta marka. Im konkretniej, tym trafniej dobierzemy ton i obraz.", fields:[
-  {k:"wiek", t:"chips", q:"Wiek klientów", o:["do 25","25–34","35–44","45–54","55–64","65+","Nie ma znaczenia"]},
-  {k:"zamoznosc", t:"scale", q:"Budżet typowego klienta", l:"Ostrożny", r:"Wysoki"},
-  {k:"persona", t:"textarea", q:"Opisz jednego idealnego klienta", help:"Jedną konkretną osobę albo firmę, nie grupę. Kim jest, czego szuka, czym się martwi.", ph:"np. Marta, 36 lat, prowadzi własną kancelarię. Nie ma czasu na szukanie dostawców…"},
-  {k:"problem", t:"textarea", q:"Jaki problem klienta rozwiązujecie?", help:"Co się dzieje u klienta, zanim do Was trafi? Co się zmienia potem?"},
-  {k:"dlaczego_my", t:"textarea", q:"Dlaczego klienci wybierają Was, a nie konkurencję?", help:"Najlepiej ich słowami, jeśli je znasz."},
-  {k:"zrodla", t:"chips", q:"Skąd przychodzą klienci?", o:["Polecenia","Google","Social media","Reklamy płatne","Targi i wydarzenia","Sprzedaż bezpośrednia","Marketplace'y","Partnerzy"]},
-  {k:"jezyki", t:"chips", q:"W jakich językach komunikujecie się z klientami?", o:["polski","angielski","niemiecki","ukraiński","inny"]}
+ {id:"klienci", title:["Klienci","Clients"], nav:["Klienci","Clients"], intro:["Dla kogo jest ta marka. Im konkretniej, tym trafniej dobierzemy ton i obraz.","Who this brand is for. The more specific you are, the better we can match the tone and imagery."], fields:[
+  {k:"wiek", t:"chips", q:["Wiek klientów","Client age"], o:[["do 25","under 25"],"25–34","35–44","45–54","55–64","65+",["Nie ma znaczenia","Doesn't matter"]]},
+  {k:"zamoznosc", t:"scale", q:["Budżet typowego klienta","Typical client budget"], l:["Ostrożny","Modest"], r:["Wysoki","High"]},
+  {k:"persona", t:"textarea", q:["Opisz jednego idealnego klienta","Describe one ideal client"], help:["Jedną konkretną osobę albo firmę, nie grupę. Kim jest, czego szuka, czym się martwi.","One specific person or company, not a group. Who they are, what they're looking for, what worries them."], ph:["np. Marta, 36 lat, prowadzi własną kancelarię. Nie ma czasu na szukanie dostawców…","e.g. Martha, 36, runs her own law firm. She has no time to look for suppliers…"]},
+  {k:"problem", t:"textarea", q:["Jaki problem klienta rozwiązujecie?","What client problem do you solve?"], help:["Co się dzieje u klienta, zanim do Was trafi? Co się zmienia potem?","What is happening for the client before they come to you? What changes afterwards?"]},
+  {k:"dlaczego_my", t:"textarea", q:["Dlaczego klienci wybierają Was, a nie konkurencję?","Why do clients choose you over the competition?"], help:["Najlepiej ich słowami, jeśli je znasz.","Ideally in their own words, if you know them."]},
+  {k:"zrodla", t:"chips", q:["Skąd przychodzą klienci?","Where do your clients come from?"], o:[["Polecenia","Referrals"],"Google","Social media",["Reklamy płatne","Paid ads"],["Targi i wydarzenia","Trade fairs and events"],["Sprzedaż bezpośrednia","Direct sales"],["Marketplace'y","Marketplaces"],["Partnerzy","Partners"]]},
+  {k:"jezyki", t:"chips", q:["W jakich językach komunikujecie się z klientami?","Which languages do you use with clients?"], o:[["polski","Polish"],["angielski","English"],["niemiecki","German"],["ukraiński","Ukrainian"],["inny","Other"]]}
  ]},
- {id:"misja", title:"Misja i wartości", nav:"Wartości", intro:"Fundament, na którym oprze się cała komunikacja.", fields:[
-  {k:"misja", t:"textarea", q:"Po co istnieje Twoja firma, poza zarabianiem pieniędzy?", ph:"np. Żeby małe firmy mogły wyglądać tak profesjonalnie jak duże."},
-  {k:"wizja", t:"textarea", q:"Gdzie firma ma być za 3–5 lat?", help:"Wielkość zespołu, rynki, rozpoznawalność, nowe produkty."},
-  {k:"wartosci", t:"chips", max:3, q:"Najważniejsze wartości", help:"Wybierz maksymalnie 3. Te, z których nie zrezygnujesz nawet kosztem zysku.", o:["Jakość","Zaufanie","Innowacyjność","Prostota","Odpowiedzialność","Bliskość","Szybkość","Rzemiosło","Ekologia","Odwaga","Przejrzystość","Wspólnota"]}
+ {id:"misja", title:["Misja i wartości","Mission and values"], nav:["Wartości","Values"], intro:["Fundament, na którym oprze się cała komunikacja.","The foundation for all of your communication."], fields:[
+  {k:"misja", t:"textarea", q:["Po co istnieje Twoja firma, poza zarabianiem pieniędzy?","Why does your company exist, beyond making money?"], ph:["np. Żeby małe firmy mogły wyglądać tak profesjonalnie jak duże.","e.g. So that small businesses can look as professional as big ones."]},
+  {k:"wizja", t:"textarea", q:["Gdzie firma ma być za 3–5 lat?","Where should the company be in 3–5 years?"], help:["Wielkość zespołu, rynki, rozpoznawalność, nowe produkty.","Team size, markets, recognition, new products."]},
+  {k:"wartosci", t:"chips", max:3, q:["Najważniejsze wartości","Core values"], help:["Wybierz maksymalnie 3. Te, z których nie zrezygnujesz nawet kosztem zysku.","Choose up to 3. The ones you wouldn't give up even at the cost of profit."], o:[["Jakość","Quality"],["Zaufanie","Trust"],["Innowacyjność","Innovation"],["Prostota","Simplicity"],["Odpowiedzialność","Responsibility"],["Bliskość","Closeness"],["Szybkość","Speed"],["Rzemiosło","Craft"],["Ekologia","Sustainability"],["Odwaga","Courage"],["Przejrzystość","Transparency"],["Wspólnota","Community"]]}
  ]},
- {id:"charakter", title:"Charakter marki", nav:"Charakter", intro:"Przesuń suwaki tam, gdzie widzisz swoją markę. Środek oznacza „pomiędzy”. Suwaki, których nie ruszysz, potraktuję jako „bez zdania”.", fields:[
+ {id:"charakter", title:["Charakter marki","Brand personality"], nav:["Charakter","Personality"], intro:["Przesuń suwaki tam, gdzie widzisz swoją markę. Środek oznacza „pomiędzy”. Suwaki, których nie ruszysz, potraktuję jako „bez zdania”.","Move the sliders to where you see your brand. The middle means “somewhere in between”. Sliders you don't touch count as “no opinion”."], fields:[
   {scales:[
-   {k:"c_powaga", l:"Poważna", r:"Z humorem"},
-   {k:"c_formalna", l:"Formalna", r:"Bezpośrednia"},
-   {k:"c_tradycja", l:"Tradycyjna", r:"Nowoczesna"},
-   {k:"c_ekskl", l:"Ekskluzywna", r:"Przystępna"},
-   {k:"c_glos", l:"Stonowana", r:"Wyrazista"},
-   {k:"c_racjo", l:"Rzeczowa, liczby i fakty", r:"Emocjonalna, ludzie i historie"},
-   {k:"c_lokalna", l:"Lokalna", r:"Międzynarodowa"},
-   {k:"c_odwaga", l:"Ostrożna", r:"Odważna"}
+   {k:"c_powaga", l:["Poważna","Serious"], r:["Z humorem","Humorous"]},
+   {k:"c_formalna", l:["Formalna","Formal"], r:["Bezpośrednia","Casual"]},
+   {k:"c_tradycja", l:["Tradycyjna","Traditional"], r:["Nowoczesna","Modern"]},
+   {k:"c_ekskl", l:["Ekskluzywna","Exclusive"], r:["Przystępna","Approachable"]},
+   {k:"c_glos", l:["Stonowana","Understated"], r:["Wyrazista","Bold"]},
+   {k:"c_racjo", l:["Rzeczowa, liczby i fakty","Rational, numbers and facts"], r:["Emocjonalna, ludzie i historie","Emotional, people and stories"]},
+   {k:"c_lokalna", l:["Lokalna","Local"], r:["Międzynarodowa","International"]},
+   {k:"c_odwaga", l:["Ostrożna","Cautious"], r:["Odważna","Daring"]}
   ]},
-  {k:"zwrot", t:"select", q:"Jak marka ma zwracać się do klientów?", o:["Per Pan / Pani","Per Ty","Zależnie od kanału (np. Ty w social mediach, Pan/Pani w ofertach)"]},
-  {k:"slowa", t:"words", q:"Trzy słowa, które mają opisywać markę", help:"Przymiotniki albo rzeczowniki. Pierwsze, co przychodzi do głowy."},
-  {k:"osoba", t:"textarea", q:"Gdyby marka była osobą, kim by była?", help:"Wiek, zawód, jak się ubiera, jak mówi, jak spędza weekend."},
-  {k:"nigdy", t:"textarea", q:"Czego marka nie powinna nigdy robić ani mówić?"}
+  {k:"zwrot", t:"select", q:["Jak marka ma zwracać się do klientów?","How should the brand address clients?"], o:[["Per Pan / Pani","Formally (Mr / Ms)"],["Per Ty","Informally (first name)"],["Zależnie od kanału (np. Ty w social mediach, Pan/Pani w ofertach)","Depends on the channel (e.g. informal on social media, formal in proposals)"]]},
+  {k:"slowa", t:"words", q:["Trzy słowa, które mają opisywać markę","Three words that should describe the brand"], help:["Przymiotniki albo rzeczowniki. Pierwsze, co przychodzi do głowy.","Adjectives or nouns. The first that come to mind."]},
+  {k:"osoba", t:"textarea", q:["Gdyby marka była osobą, kim by była?","If the brand were a person, who would it be?"], help:["Wiek, zawód, jak się ubiera, jak mówi, jak spędza weekend.","Age, job, how they dress, how they speak, how they spend the weekend."]},
+  {k:"nigdy", t:"textarea", q:["Czego marka nie powinna nigdy robić ani mówić?","What should the brand never do or say?"]}
  ]},
- {id:"nazwa", title:"Nazwa i komunikacja", nav:"Nazwa", intro:"Jak marka będzie się nazywać i gdzie będzie jej słychać.", fields:[
+ {id:"nazwa", title:["Nazwa i komunikacja","Name and communication"], nav:["Nazwa","Name"], intro:["Jak marka będzie się nazywać i gdzie będzie jej słychać.","What the brand will be called and where it will be heard."], fields:[
   {row:[
-   {k:"nazwa_status", t:"select", q:"Nazwa firmy", o:["Mam nazwę i zostaje","Mam nazwę, ale chcę ją zmienić","Mam roboczą nazwę","Szukam nazwy","Chcę markę osobistą (imię i nazwisko)"]},
-   {k:"domena", t:"select", q:"Domena i profile w social mediach", o:["Mam już zarejestrowane","Sprawdzone, są wolne","Jeszcze nie sprawdzane"]}
+   {k:"nazwa_status", t:"select", q:["Nazwa firmy","Company name"], o:[["Mam nazwę i zostaje","I have a name and it stays"],["Mam nazwę, ale chcę ją zmienić","I have a name but want to change it"],["Mam roboczą nazwę","I have a working name"],["Szukam nazwy","I'm looking for a name"],["Chcę markę osobistą (imię i nazwisko)","I want a personal brand (my own name)"]]},
+   {k:"domena", t:"select", q:["Domena i profile w social mediach","Domain and social media handles"], o:[["Mam już zarejestrowane","Already registered"],["Sprawdzone, są wolne","Checked, they're available"],["Jeszcze nie sprawdzane","Not checked yet"]]}
   ]},
-  {k:"nazwa", t:"text", q:"Nazwa albo propozycje nazw", ph:"np. Atelier Nowak, Pion, …"},
-  {k:"twarz", t:"select", q:"Czy Ty lub zespół macie być twarzą marki?", o:["Tak, na pierwszym planie","Czasem, w tle","Nie, marka ma działać sama"]},
-  {k:"kanaly", t:"chips", q:"Gdzie marka będzie się komunikować?", o:["Strona www","Profil firmy w Google","Instagram","Facebook","LinkedIn","TikTok","YouTube","Newsletter","Materiały drukowane","Targi i wydarzenia"]},
-  {k:"haslo", t:"text", q:"Pomysły na hasło", help:"Opcjonalnie. Nawet robocze i nieidealne.", ph:"np. Zrobione porządnie"}
+  {k:"nazwa", t:"text", q:["Nazwa albo propozycje nazw","Name or name ideas"], ph:["np. Atelier Nowak, Pion, …","e.g. Atelier North, Plumb, …"]},
+  {k:"twarz", t:"select", q:["Czy Ty lub zespół macie być twarzą marki?","Should you or your team be the face of the brand?"], o:[["Tak, na pierwszym planie","Yes, front and centre"],["Czasem, w tle","Sometimes, in the background"],["Nie, marka ma działać sama","No, the brand should stand on its own"]]},
+  {k:"kanaly", t:"chips", q:["Gdzie marka będzie się komunikować?","Where will the brand communicate?"], o:[["Strona www","Website"],["Profil firmy w Google","Google Business Profile"],"Instagram","Facebook","LinkedIn","TikTok","YouTube","Newsletter",["Materiały drukowane","Printed materials"],["Targi i wydarzenia","Trade fairs and events"]]},
+  {k:"haslo", t:"text", q:["Pomysły na hasło","Tagline ideas"], help:["Opcjonalnie. Nawet robocze i nieidealne.","Optional. Even rough, imperfect ones."], ph:["np. Zrobione porządnie","e.g. Done properly"]}
  ]},
- {id:"wizual", title:"Styl wizualny", nav:"Styl", intro:"Tu nie projektujemy jeszcze logo. Szukamy kierunku: jak marka ma wyglądać i jak ma się czuć.", fields:[
-  {k:"obecna", t:"select", q:"Czy firma ma już logo lub identyfikację?", o:["Nie, zaczynamy od zera","Tak, ale do całkowitej zmiany","Tak, do odświeżenia","Tak, zostaje (potrzebne nowe materiały)"]},
+ {id:"wizual", title:["Styl wizualny","Visual style"], nav:["Styl","Style"], intro:["Tu nie projektujemy jeszcze logo. Szukamy kierunku: jak marka ma wyglądać i jak ma się czuć.","We're not designing the logo yet. We're looking for a direction: how the brand should look and feel."], fields:[
+  {k:"obecna", t:"select", q:["Czy firma ma już logo lub identyfikację?","Does the company already have a logo or visual identity?"], o:[["Nie, zaczynamy od zera","No, we're starting from scratch"],["Tak, ale do całkowitej zmiany","Yes, but it needs a complete change"],["Tak, do odświeżenia","Yes, it needs a refresh"],["Tak, zostaje (potrzebne nowe materiały)","Yes, it stays (we need new materials)"]]},
   {scales:[
-   {k:"v_detal", l:"Minimalistyczny", r:"Bogaty w detale"},
-   {k:"v_temp", l:"Ciepły", r:"Chłodny"},
-   {k:"v_klasyka", l:"Klasyczny", r:"Eksperymentalny"},
-   {k:"v_forma", l:"Geometryczny", r:"Organiczny"},
-   {k:"v_jasnosc", l:"Jasny", r:"Ciemny"},
-   {k:"v_litery", l:"Litery szeryfowe, eleganckie", r:"Litery bezszeryfowe, czyste"}
+   {k:"v_detal", l:["Minimalistyczny","Minimal"], r:["Bogaty w detale","Rich in detail"]},
+   {k:"v_temp", l:["Ciepły","Warm"], r:["Chłodny","Cool"]},
+   {k:"v_klasyka", l:["Klasyczny","Classic"], r:["Eksperymentalny","Experimental"]},
+   {k:"v_forma", l:["Geometryczny","Geometric"], r:["Organiczny","Organic"]},
+   {k:"v_jasnosc", l:["Jasny","Light"], r:["Ciemny","Dark"]},
+   {k:"v_litery", l:["Litery szeryfowe, eleganckie","Serif type, elegant"], r:["Litery bezszeryfowe, czyste","Sans-serif type, clean"]}
   ]},
-  {k:"inspiracje", t:"textarea", q:"Inspiracje wizualne", help:"Linki, marki spoza branży, wnętrza, okładki, cokolwiek, co Ci się podoba.", ph:"https://…"}
+  {k:"inspiracje", t:"textarea", q:["Inspiracje wizualne","Visual inspiration"], help:["Linki, marki spoza branży, wnętrza, okładki, cokolwiek, co Ci się podoba.","Links, brands from other industries, interiors, covers, anything you like."], ph:"https://…"}
  ]},
- {id:"zakres", title:"Zakres, budżet i terminy", nav:"Zakres", intro:"Żebym mógł przygotować realny plan i wycenę.", fields:[
-  {k:"zakres", t:"chips", q:"Czego potrzebujesz?", o:["Strategia marki","Nazwa","Logo","Księga znaku","Identyfikacja wizualna (druki, dokumenty)","Szablony social media","Strona www","Projekt aplikacji (UI/UX)","Opakowania","Prezentacja firmowa","Wizualizacje 3D","Oznakowanie i szyldy"]},
+ {id:"zakres", title:["Zakres, budżet i terminy","Scope, budget and timing"], nav:["Zakres","Scope"], intro:["Żebym mógł przygotować realny plan i wycenę.","So I can prepare a realistic plan and quote."], fields:[
+  {k:"zakres", t:"chips", q:["Czego potrzebujesz?","What do you need?"], o:[["Strategia marki","Brand strategy"],["Nazwa","Naming"],"Logo",["Księga znaku","Brand guidelines"],["Identyfikacja wizualna (druki, dokumenty)","Visual identity (print, documents)"],["Szablony social media","Social media templates"],["Strona www","Website"],["Projekt aplikacji (UI/UX)","App design (UI/UX)"],["Opakowania","Packaging"],["Prezentacja firmowa","Company presentation"],["Wizualizacje 3D","3D visualisations"],["Oznakowanie i szyldy","Signage"]]},
   {row:[
-   {k:"budzet", t:"select", q:"Budżet (netto)", o:["do 5 000 zł","5 000 – 15 000 zł","15 000 – 30 000 zł","30 000 – 60 000 zł","powyżej 60 000 zł","Proszę o wycenę"]},
-   {k:"termin", t:"select", q:"Kiedy marka ma być gotowa?", o:["Jak najszybciej","W ciągu miesiąca","W ciągu 2–3 miesięcy","Bez pośpiechu"]}
+   {k:"budzet", t:"select", q:["Budżet (netto)","Budget (net)"], o:[["do 5 000 zł","up to 5,000 PLN"],["5 000 – 15 000 zł","5,000–15,000 PLN"],["15 000 – 30 000 zł","15,000–30,000 PLN"],["30 000 – 60 000 zł","30,000–60,000 PLN"],["powyżej 60 000 zł","over 60,000 PLN"],["Proszę o wycenę","Please send me a quote"]]},
+   {k:"termin", t:"select", q:["Kiedy marka ma być gotowa?","When should the brand be ready?"], o:[["Jak najszybciej","As soon as possible"],["W ciągu miesiąca","Within a month"],["W ciągu 2–3 miesięcy","Within 2–3 months"],["Bez pośpiechu","No rush"]]}
   ]},
   {row:[
-   {k:"start", t:"date", q:"Kiedy chcesz zacząć współpracę?"},
-   {k:"decyzja", t:"select", q:"Kto podejmuje decyzje w projekcie?", o:["Tylko ja","Ja i wspólnicy","Zarząd","Dział marketingu","Ktoś jeszcze (opiszę w uwagach)"]}
+   {k:"start", t:"date", q:["Kiedy chcesz zacząć współpracę?","When would you like to start?"]},
+   {k:"decyzja", t:"select", q:["Kto podejmuje decyzje w projekcie?","Who makes decisions on the project?"], o:[["Tylko ja","Only me"],["Ja i wspólnicy","Me and my partners"],["Zarząd","The board"],["Dział marketingu","The marketing team"],["Ktoś jeszcze (opiszę w uwagach)","Someone else (I'll explain in the notes)"]]}
   ]},
-  {k:"cel", t:"textarea", q:"Co ma się zmienić w firmie dzięki nowej marce?", help:"Więcej zapytań, wyższe ceny, nowy rynek, łatwiejsza rekrutacja. Cokolwiek jest dla Ciebie miarą sukcesu."}
+  {k:"cel", t:"textarea", q:["Co ma się zmienić w firmie dzięki nowej marce?","What should change in the company thanks to the new brand?"], help:["Więcej zapytań, wyższe ceny, nowy rynek, łatwiejsza rekrutacja. Cokolwiek jest dla Ciebie miarą sukcesu.","More enquiries, higher prices, a new market, easier hiring. Whatever success means to you."]}
  ]},
- {id:"koniec", title:"Na koniec", nav:"Na koniec", intro:"Ostatnie słowo należy do Ciebie.", fields:[
-  {k:"uwagi", t:"textarea", q:"Coś jeszcze, co powinienem wiedzieć?"},
-  {k:"skad", t:"select", q:"Skąd wiesz o studiu KOSMΛ?", o:["Polecenie","Google","Instagram","LinkedIn","Behance / Dribbble","Inne"]},
-  {k:"zgoda", t:"consent", req:true, q:"Zgoda na kontakt", text:"Zgadzam się, aby KOSMΛ Design Studio wykorzystało podane informacje do przygotowania strategii, oferty i kontaktu w sprawie projektu."}
+ {id:"koniec", title:["Na koniec","Finally"], nav:["Na koniec","Finally"], intro:["Ostatnie słowo należy do Ciebie.","The last word is yours."], fields:[
+  {k:"uwagi", t:"textarea", q:["Coś jeszcze, co powinienem wiedzieć?","Anything else I should know?"]},
+  {k:"skad", t:"select", q:["Skąd wiesz o studiu KOSMΛ?","How did you hear about KOSMΛ studio?"], o:[["Polecenie","Referral"],"Google","Instagram","LinkedIn","Behance / Dribbble",["Inne","Other"]]},
+  {k:"zgoda", t:"consent", req:true, q:["Zgoda na kontakt","Consent"], text:["Zgadzam się, aby KOSMΛ Design Studio wykorzystało podane informacje do przygotowania strategii, oferty i kontaktu w sprawie projektu.","I agree that KOSMΛ Design Studio may use this information to prepare a strategy and a proposal, and to contact me about the project."]}
  ]}
 ];
 
-var STEP_WORDS=["zdecydowanie","raczej","lekko","pośrodku","lekko","raczej","zdecydowanie"];
+/* ---------- interface texts [pl, en] ---------- */
+var UI = {
+  docTitle:["Ankieta strategiczna marki · KOSMΛ","Brand Strategy Brief · KOSMΛ"],
+  langGroup:["Język","Language"],
+  progress:["Wypełniono","Progress"],
+  tocLabel:["Części ankiety","Brief sections"],
+  eyebrow:["Brief strategiczny · nowa marka","Strategy brief · new brand"],
+  h1:["Zanim powstanie logo, poznajmy Twoją firmę.","Before the logo, let's get to know your company."],
+  lede:["Każda firma ma swoją historię, swoich ludzi i powody, dla których klienci do niej wracają. Ta ankieta pomoże mi je uchwycić i zamienić w strategię oraz kierunek wizualny Twojej marki.","Every company has its own story, its own people and its reasons why clients keep coming back. This brief will help me capture them and turn them into a strategy and a visual direction for your brand."],
+  intro2:["Nie ma tu złych odpowiedzi. Jeśli czegoś jeszcze nie wiesz, po prostu pomiń pytanie. Porozmawiamy o tym na spotkaniu.","There are no wrong answers. If you don't know something yet, just skip the question. We'll talk it through when we meet."],
+  f1:["<b>~20</b> minut","<b>~20</b> minutes"],
+  f2:["<b>9</b> części","<b>9</b> parts"],
+  f3:["Szkic zapisuje się w tej przeglądarce","Your draft is saved in this browser"],
+  readyNum:["Gotowe?","Ready?"],
+  sendH2:["Wyślij odpowiedzi","Send your answers"],
+  sendIntro:["Odpowiedzi trafią prosto do Mika ze studia KOSMΛ. Odezwę się, gdy tylko je przeczytam.","Your answers go straight to Mik at KOSMΛ studio. I'll get back to you as soon as I've read them."],
+  send:["Wyślij odpowiedzi","Send answers"],
+  sending:["Wysyłanie…","Sending…"],
+  sentH3:["Dziękuję, odpowiedzi dotarły.","Thank you, your answers have arrived."],
+  sentP:["Przeczytam je i wrócę do Ciebie z pierwszymi wnioskami oraz propozycją dalszych kroków. Jeśli chcesz, zachowaj kopię swoich odpowiedzi.","I'll read them and come back to you with first insights and a proposal for next steps. If you like, keep a copy of your answers."],
+  dlCopy:["Pobierz kopię (.md)","Download a copy (.md)"],
+  copyAnswers:["Kopiuj odpowiedzi","Copy answers"],
+  mailH3:["Wyślij odpowiedzi mailem","Send your answers by email"],
+  mailLi1:["Kliknij <b>Otwórz e-mail</b>. Odpowiedzi trafią do schowka, a program pocztowy otworzy nową wiadomość.","Click <b>Open email</b>. Your answers are copied to the clipboard and your email app opens a new message."],
+  mailLi2:["Jeśli treść nie pojawiła się w wiadomości, wklej ją (Ctrl+V lub Cmd+V) i wyślij.","If the text doesn't appear in the message, paste it (Ctrl+V or Cmd+V) and send."],
+  mailLi3:["Program pocztowy się nie otworzył? Skopiuj odpowiedzi i wyślij je na adres poniżej.","Email app didn't open? Copy your answers and send them to the address below."],
+  openMail:["Otwórz e-mail","Open email"],
+  dlFile:["Pobierz plik .md","Download .md file"],
+  copyAddr:["Kopiuj adres","Copy address"],
+  previewSummary:["Podgląd treści wiadomości","Preview the message"],
+  previewAria:["Treść wiadomości","Message text"],
+  required:["wymagane","required"],
+  choose:["Wybierz…","Choose…"],
+  word:["Słowo","Word"],
+  noOpinion:["bez zdania","no opinion"],
+  middle:["pośrodku","in the middle"],
+  to:[" do "," to "],
+  clear:["wyczyść","clear"],
+  steps:[["zdecydowanie","raczej","lekko","pośrodku","lekko","raczej","zdecydowanie"],["strongly","fairly","slightly","in the middle","slightly","fairly","strongly"]],
+  err_imie:["Podaj imię i nazwisko.","Please enter your full name."],
+  err_email:["Podaj adres e-mail, na który mogę odpisać.","Please enter an email address I can reply to."],
+  err_zgoda:["Zaznacz zgodę, żebym mógł wykorzystać odpowiedzi.","Please tick the consent so I can use your answers."],
+  fixFields:["Uzupełnij zaznaczone pola, a potem wróć tutaj.","Fill in the highlighted fields, then come back here."],
+  yes:["tak","yes"],
+  no:["nie","no"],
+  mailTitle:["Ankieta strategiczna marki","Brand strategy brief"],
+  sentOn:["Wysłano","Sent"],
+  langLine:["Język ankiety: polski","Brief language: English"],
+  mailFallbackBody:["Dzień dobry,\n\nponiżej moje odpowiedzi z ankiety.\n\n[Wklej tutaj odpowiedzi: Ctrl+V lub Cmd+V]\n","Hello,\n\nbelow are my answers from the brief.\n\n[Paste your answers here: Ctrl+V or Cmd+V]\n"],
+  sentOk:["Wysłane.","Sent."],
+  fbNoFetch:["Wyślij odpowiedzi mailem, to zajmie chwilę:","Send your answers by email, it only takes a moment:"],
+  fbFail:["Nie udało się wysłać automatycznie. Wyślij odpowiedzi mailem, to zajmie chwilę:","Couldn't send automatically. Send your answers by email, it only takes a moment:"],
+  mailtoOk:["Odpowiedzi są w schowku. Jeśli otworzyła się nowa wiadomość, sprawdź treść i kliknij Wyślij.","Your answers are in the clipboard. If a new message opened, check it and click Send."],
+  mailtoFail:["Nie udało się skopiować automatycznie. Otwórz podgląd poniżej, zaznacz tekst i skopiuj go ręcznie.","Couldn't copy automatically. Open the preview below, select the text and copy it manually."],
+  copyOk:["Skopiowano. Wklej odpowiedzi do wiadomości na adres "+EMAIL+".","Copied. Paste your answers into a message to "+EMAIL+"."],
+  copyFail:["Nie udało się skopiować automatycznie. Podgląd poniżej jest zaznaczony, skopiuj go ręcznie.","Couldn't copy automatically. The preview below is selected, copy it manually."],
+  copySentOk:["Skopiowano.","Copied."],
+  copySentFail:["Nie udało się skopiować automatycznie.","Couldn't copy automatically."],
+  addrOk:["Adres skopiowany.","Address copied."],
+  addrFail:["Zaznacz adres i skopiuj go ręcznie.","Select the address and copy it manually."],
+  fileSaved:["Plik zapisany.","File saved."],
+  fileFail:["Nie udało się zapisać pliku. Skorzystaj z przycisku Kopiuj odpowiedzi.","Couldn't save the file. Use the Copy answers button instead."],
+  filePrefix:["ankieta-marki-","brand-brief-"],
+  fileDefault:["odpowiedzi","answers"],
+  resetBtn:["Wyczyść formularz","Clear the form"],
+  resetAsk:["Usunąć wszystkie odpowiedzi z tej przeglądarki?","Delete all answers from this browser?"],
+  resetYes:["Tak, wyczyść wszystko","Yes, clear everything"],
+  resetCancel:["Anuluj","Cancel"],
+  resetDone:["Formularz wyczyszczony.","Form cleared."]
+};
+
+/* ---------- language: ?lang= or #pl / #en in the link, then the viewer's last choice, then English ---------- */
+var LANG_KEY="kosma-brief-lang";
+function initialLang(){
+  var q=(location.search.match(/[?&]lang=(pl|en)\b/i)||[])[1];
+  if(q) return q.toLowerCase();
+  var h=(location.hash||"").toLowerCase();
+  if(h==="#pl"||h==="#en") return h.slice(1);
+  try{ var s=localStorage.getItem(LANG_KEY); if(s==="pl"||s==="en") return s; }catch(e){}
+  return "en";
+}
+var lang=initialLang();
+var L=lang==="en"?1:0;
+function T(x){ return Array.isArray(x) ? (x[L]!=null?x[L]:x[0]) : x; }
+function t(k){ return T(UI[k]); }
+function ov(o){ return Array.isArray(o)?o[0]:o; }   /* stored value: the Polish text */
+function ol(o){ return T(o); }                       /* label in the current language */
+function optLabel(f,v){
+  if(!f.o) return v;
+  for(var i=0;i<f.o.length;i++){ if(ov(f.o[i])===v) return ol(f.o[i]); }
+  return v;
+}
+function applyStatic(){
+  document.documentElement.lang=lang;
+  document.title=t("docTitle");
+  [].forEach.call(document.querySelectorAll("[data-i18n]"),function(n){ n.textContent=t(n.getAttribute("data-i18n")); });
+  [].forEach.call(document.querySelectorAll("[data-i18n-html]"),function(n){ n.innerHTML=t(n.getAttribute("data-i18n-html")); });
+  [].forEach.call(document.querySelectorAll("[data-i18n-aria]"),function(n){ n.setAttribute("aria-label",t(n.getAttribute("data-i18n-aria"))); });
+  [].forEach.call(document.querySelectorAll("[data-lang]"),function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang")===lang ? "true" : "false"); });
+}
+applyStatic();
 
 /* ---------- state ---------- */
 var state={};
@@ -476,6 +590,8 @@ function el(tag, attrs, kids){
   return n;
 }
 function pad(n){ return (n<10?"0":"")+n; }
+var KEYIDX={};
+function fid(f){ return f.c ? "f-"+f.k : "q"+KEYIDX[f.k]; }
 function findField(k){
   var out=null;
   S.forEach(function(s){ s.fields.forEach(function(f){
@@ -494,6 +610,7 @@ function allFields(sec){
   });
   return list;
 }
+(function(){ var i=0; S.forEach(function(s){ allFields(s).forEach(function(f){ KEYIDX[f.k]=++i; }); }); })();
 function answered(f){
   var v=state[f.k];
   if(f.t==="chips") return Array.isArray(v)&&v.length>0;
@@ -505,53 +622,52 @@ function answered(f){
 
 /* ---------- renderers ---------- */
 function head(f, forId){
-  var q=el("label",{cls:"q", "for":forId},[f.q]);
-  if(f.req) q.appendChild(el("span",{cls:"req",text:"wymagane"}));
+  var q=el("label",{cls:"q", "for":forId},[T(f.q)]);
+  if(f.req) q.appendChild(el("span",{cls:"req",text:t("required")}));
   return q;
 }
 function wrap(f, control){
-  var d=el("div",{cls:"field", "data-k":f.k});
+  /* each non-contact field is its own small form, so Safari's contact autofill cannot spill into it */
+  var d=f.c ? el("div",{cls:"field", "data-k":f.k}) : el("form",{cls:"field", "data-k":f.k, autocomplete:"off", novalidate:""});
   if(f.t==="chips"||f.t==="words"||f.t==="consent"){
-    var lab=el("div",{cls:"q", id:"q-"+f.k},[f.q]);
-    if(f.req) lab.appendChild(el("span",{cls:"req",text:"wymagane"}));
+    var lab=el("div",{cls:"q", id:"q-"+f.k},[T(f.q)]);
+    if(f.req) lab.appendChild(el("span",{cls:"req",text:t("required")}));
     d.appendChild(lab);
-  } else d.appendChild(head(f,"f-"+f.k));
-  if(f.help) d.appendChild(el("p",{cls:"help",text:f.help}));
+  } else d.appendChild(head(f,fid(f)));
+  if(f.help) d.appendChild(el("p",{cls:"help",text:T(f.help)}));
   d.appendChild(control);
   return d;
 }
 function selectOptions(sel, f){
   var cur=state[f.k]||"";
   sel.innerHTML="";
-  sel.appendChild(el("option",{value:"",text:"Wybierz…"}));
-  var opts=f.o;
-  if(f.from){
-    var picked=state[f.from];
-    opts=(Array.isArray(picked)&&picked.length)?picked:findField(f.from).o;
-  }
-  opts.forEach(function(o){ var op=el("option",{value:o,text:o}); if(o===cur) op.selected=true; sel.appendChild(op); });
-  if(cur && opts.indexOf(cur)===-1){ var op=el("option",{value:cur,text:cur}); op.selected=true; sel.appendChild(op); }
+  sel.appendChild(el("option",{value:"",text:t("choose")}));
+  var found=false;
+  f.o.forEach(function(o){ var op=el("option",{value:ov(o),text:ol(o)}); if(ov(o)===cur){ op.selected=true; found=true; } sel.appendChild(op); });
+  if(cur && !found){ var op=el("option",{value:cur,text:cur}); op.selected=true; sel.appendChild(op); }
   sel.classList.toggle("empty", !sel.value);
 }
 function renderField(f){
-  var id="f-"+f.k, c;
+  var id=fid(f), c;
   switch(f.t){
     case "text": case "email": case "tel": case "date":
-      c=el("input",{type:f.t, id:id, name:f.k});
-      if(f.ph) c.placeholder=f.ph;
-      if(f.ac) c.autocomplete=f.ac;
+      c=el("input",{type:f.t, id:id});
+      if(f.ph) c.placeholder=T(f.ph);
+      if(f.c){ c.name=f.ac||f.k; if(f.ac) c.autocomplete=f.ac; }
+      else c.setAttribute("autocomplete","off");
       if(f.req) c.required=true;
       c.value=state[f.k]||"";
       c.addEventListener("input",function(){ state[f.k]=c.value; changed(f); });
       return wrap(f,c);
     case "textarea":
-      c=el("textarea",{id:id, name:f.k, rows:"4"});
-      if(f.ph) c.placeholder=f.ph;
+      c=el("textarea",{id:id, rows:"4", autocomplete:"off"});
+      if(f.ph) c.placeholder=T(f.ph);
       c.value=state[f.k]||"";
       c.addEventListener("input",function(){ state[f.k]=c.value; changed(f); });
       return wrap(f,c);
     case "select":
-      c=el("select",{id:id, name:f.k});
+      c=el("select",{id:id});
+      if(f.c) c.name=f.k;
       selectOptions(c,f);
       c.addEventListener("change",function(){ state[f.k]=c.value; c.classList.toggle("empty",!c.value); changed(f); });
       if(f.from) dependents.push(function(){ selectOptions(c,f); });
@@ -565,13 +681,13 @@ function renderField(f){
         c.querySelectorAll("input").forEach(function(x){ x.disabled = !x.checked && n>=f.max; });
       }
       f.o.forEach(function(o,i){
-        var inp=el("input",{type:"checkbox", id:id+"-"+i, name:f.k, value:o});
-        inp.checked=cur.indexOf(o)>-1;
+        var inp=el("input",{type:"checkbox", id:id+"-"+i, value:ov(o)});
+        inp.checked=cur.indexOf(ov(o))>-1;
         inp.addEventListener("change",function(){
           var arr=[]; c.querySelectorAll("input:checked").forEach(function(x){arr.push(x.value);});
           state[f.k]=arr; limit(); changed(f);
         });
-        c.appendChild(el("label",{cls:"chip","for":id+"-"+i},[inp, el("span",{text:o})]));
+        c.appendChild(el("label",{cls:"chip","for":id+"-"+i},[inp, el("span",{text:ol(o)})]));
       });
       limit();
       return wrap(f,c);
@@ -579,7 +695,7 @@ function renderField(f){
       c=el("div",{cls:"words", role:"group", "aria-labelledby":"q-"+f.k});
       var w=Array.isArray(state[f.k])?state[f.k]:["","",""];
       [0,1,2].forEach(function(i){
-        var inp=el("input",{type:"text", id:id+"-"+i, "aria-label":"Słowo "+(i+1)});
+        var inp=el("input",{type:"text", id:id+"-"+i, autocomplete:"off", "aria-label":t("word")+" "+(i+1)});
         inp.value=w[i]||"";
         inp.addEventListener("input",function(){
           var arr=[]; c.querySelectorAll("input").forEach(function(x){arr.push(x.value);});
@@ -594,29 +710,29 @@ function renderField(f){
       var box=el("input",{type:"checkbox", id:id});
       box.checked=state[f.k]===true;
       box.addEventListener("change",function(){ state[f.k]=box.checked; changed(f); });
-      c=el("label",{cls:"consent","for":id},[box, el("span",{text:f.text})]);
+      c=el("label",{cls:"consent","for":id},[box, el("span",{text:T(f.text)})]);
       return wrap(f,c);
   }
 }
 function scaleWords(f,v){
-  if(typeof v!=="number") return "bez zdania";
-  if(v===3) return "pośrodku";
-  return STEP_WORDS[v]+": "+(v<3?f.l:f.r).toLowerCase();
+  if(typeof v!=="number") return t("noOpinion");
+  if(v===3) return t("middle");
+  return t("steps")[v]+": "+T(v<3?f.l:f.r).toLowerCase();
 }
 function renderScale(f, withQ){
-  var id="f-"+f.k, v=state[f.k];
+  var id=fid(f), v=state[f.k];
   var box=el("div",{cls:"scale"+(typeof v==="number"?" touched":""), "data-k":f.k});
   var top=el("div",{cls:"scale-top"});
   var read=el("span",{cls:"scale-read", id:"r-"+f.k});
-  if(withQ){ top.appendChild(el("label",{cls:"q","for":id, text:f.q})); }
+  if(withQ){ top.appendChild(el("label",{cls:"q","for":id, text:T(f.q)})); }
   else { top.appendChild(el("span")); }
   top.appendChild(read);
   var ticks=el("div",{cls:"ticks","aria-hidden":"true"}); for(var i=0;i<7;i++) ticks.appendChild(el("i"));
   var rng=el("input",{type:"range", id:id, min:"0", max:"6", step:"1"});
   rng.value=typeof v==="number"?v:3;
-  rng.setAttribute("aria-label", (withQ?f.q+": ":"")+f.l+" do "+f.r);
-  var ends=el("div",{cls:"scale-ends","aria-hidden":"true"},[el("span",{text:f.l}), el("span",{text:f.r})]);
-  var reset=el("button",{type:"button", cls:"scale-reset", text:"wyczyść"});
+  rng.setAttribute("aria-label", (withQ?T(f.q)+": ":"")+T(f.l)+t("to")+T(f.r));
+  var ends=el("div",{cls:"scale-ends","aria-hidden":"true"},[el("span",{text:T(f.l)}), el("span",{text:T(f.r)})]);
+  var reset=el("button",{type:"button", cls:"scale-reset", text:t("clear")});
   function paint(){
     var val=state[f.k];
     var t=typeof val==="number";
@@ -659,19 +775,23 @@ S.forEach(function(sec, si){
   var s=el("section",{cls:"part", id:sec.id, "aria-labelledby":"h-"+sec.id});
   s.appendChild(el("div",{cls:"part-head"},[
     el("div",{cls:"part-num", html:"<b>"+pad(si+1)+"</b> / "+pad(S.length)}),
-    el("h2",{id:"h-"+sec.id, text:sec.title}),
-    el("p",{cls:"part-intro", text:sec.intro})
+    el("h2",{id:"h-"+sec.id, text:T(sec.title)}),
+    el("p",{cls:"part-intro", text:T(sec.intro)})
   ]));
-  var fs=el("div",{cls:"fields"});
+  var fs=el("div",{cls:"fields"}), cg=null;
   sec.fields.forEach(function(f){
-    if(f.row){ var r=el("div",{cls:"row2"}); f.row.forEach(function(g){ r.appendChild(renderField(g)); }); fs.appendChild(r); }
+    if(f.row){
+      var r=el("div",{cls:"row2"}); f.row.forEach(function(g){ r.appendChild(renderField(g)); });
+      if(f.contact){ if(!cg){ cg=el("form",{cls:"contact", autocomplete:"on", novalidate:""}); fs.appendChild(cg); } cg.appendChild(r); }
+      else fs.appendChild(r);
+    }
     else if(f.scales){ var w=el("div",{cls:"scales"}); f.scales.forEach(function(g){ w.appendChild(renderScale(g,false)); }); fs.appendChild(w); }
     else fs.appendChild(renderField(f));
   });
   s.appendChild(fs);
   form.appendChild(s);
 
-  var a=el("a",{href:"#"+sec.id, id:"t-"+sec.id},[el("span",{cls:"n",text:pad(si+1)}), el("span",{text:sec.nav}), el("span",{cls:"c", id:"tc-"+sec.id})]);
+  var a=el("a",{href:"#"+sec.id, id:"t-"+sec.id},[el("span",{cls:"n",text:pad(si+1)}), el("span",{text:T(sec.nav)}), el("span",{cls:"c", id:"tc-"+sec.id})]);
   toc.appendChild(el("li",{},[a]));
 });
 if(io){ io.disconnect(); document.querySelectorAll("section.part").forEach(function(s){ io.observe(s); }); }
@@ -722,7 +842,7 @@ function valid(f){
   if(f.t==="email") return typeof v==="string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
   return answered(f);
 }
-var MSG={imie:"Podaj imię i nazwisko.", email:"Podaj adres e-mail, na który mogę odpisać.", zgoda:"Zaznacz zgodę, żebym mógł wykorzystać odpowiedzi."};
+
 function validate(){
   var first=null;
   ["imie","email","zgoda"].forEach(function(k){
@@ -730,7 +850,7 @@ function validate(){
     var old=w.querySelector(".err"); if(old) old.remove();
     if(!valid(f)){
       w.classList.add("invalid");
-      w.appendChild(el("p",{cls:"err",text:MSG[k]}));
+      w.appendChild(el("p",{cls:"err",text:t("err_"+k)}));
       if(!first) first=w;
     } else w.classList.remove("invalid");
   });
@@ -740,10 +860,11 @@ function validate(){
 /* ---------- compose ---------- */
 function fmt(f){
   var v=state[f.k];
-  if(f.t==="scale") return typeof v==="number" ? (v+1)+"/7 · "+scaleWords(f,v) : "bez zdania";
-  if(f.t==="chips") return (Array.isArray(v)&&v.length)? v.join(", ") : "—";
+  if(f.t==="scale") return typeof v==="number" ? (v+1)+"/7 · "+scaleWords(f,v) : t("noOpinion");
+  if(f.t==="chips") return (Array.isArray(v)&&v.length)? v.map(function(x){ return optLabel(f,x); }).join(", ") : "—";
+  if(f.t==="select") return (typeof v==="string"&&v)? optLabel(f,v) : "—";
   if(f.t==="words") return (Array.isArray(v)&&v.some(function(x){return x&&x.trim();})) ? v.filter(function(x){return x&&x.trim();}).map(function(x){return x.trim();}).join(" · ") : "—";
-  if(f.t==="consent") return v===true?"tak":"nie";
+  if(f.t==="consent") return v===true?t("yes"):t("no");
   if(f.t==="date" && v){ var p=v.split("-"); return p.length===3? p[2]+"."+p[1]+"."+p[0] : v; }
   return (typeof v==="string"&&v.trim())? v.trim() : "—";
 }
@@ -751,20 +872,21 @@ function compose(){
   var name=(state.imie||"").trim();
   var lines=[];
   var now=new Date();
-  lines.push("# Ankieta strategiczna marki"+(name?" · "+name:""));
-  lines.push("Wysłano: "+pad(now.getDate())+"."+pad(now.getMonth()+1)+"."+now.getFullYear());
+  lines.push("# "+t("mailTitle")+(name?" · "+name:""));
+  lines.push(t("sentOn")+": "+pad(now.getDate())+"."+pad(now.getMonth()+1)+"."+now.getFullYear());
+  lines.push(t("langLine"));
   S.forEach(function(sec,si){
     lines.push("");
-    lines.push("## "+pad(si+1)+" "+sec.title);
+    lines.push("## "+pad(si+1)+" "+T(sec.title));
     sec.fields.forEach(function(f){
       if(f.scales){
         lines.push("");
-        f.scales.forEach(function(g){ lines.push("- "+g.l+" ↔ "+g.r+": "+fmt(Object.assign({t:"scale"},g))); });
+        f.scales.forEach(function(g){ lines.push("- "+T(g.l)+" ↔ "+T(g.r)+": "+fmt(Object.assign({t:"scale"},g))); });
         lines.push("");
         return;
       }
       (f.row||[f]).forEach(function(g){
-        var label = g.t==="scale" ? g.q+" ("+g.l+" ↔ "+g.r+")" : g.q;
+        var label = g.t==="scale" ? T(g.q)+" ("+T(g.l)+" ↔ "+T(g.r)+")" : T(g.q);
         var val=fmt(g);
         if(g.t==="textarea" && val!=="—" && val.indexOf("\n")>-1) lines.push("**"+label+":**\n"+val);
         else lines.push("**"+label+":** "+val);
@@ -775,7 +897,7 @@ function compose(){
 }
 function subject(){
   var name=(state.imie||"").trim();
-  return "Ankieta strategiczna marki"+(name?" · "+name:"");
+  return t("mailTitle")+(name?" · "+name:"");
 }
 
 /* ---------- clipboard ---------- */
@@ -812,7 +934,7 @@ function smooth(){ return matchMedia("(prefers-reduced-motion: reduce)").matches
 function buildMailto(){
   var full="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject())+"&body="+encodeURIComponent(body);
   if(full.length>1900){
-    full="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject())+"&body="+encodeURIComponent("Dzień dobry,\n\nponiżej moje odpowiedzi z ankiety.\n\n[Wklej tutaj odpowiedzi: Ctrl+V lub Cmd+V]\n");
+    full="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject())+"&body="+encodeURIComponent(t("mailFallbackBody"));
   }
   mailto.href=full;
 }
@@ -827,7 +949,7 @@ function showFallback(msg){
 }
 function showSent(){
   status.className="status ok";
-  status.textContent="Wysłane.";
+  status.textContent=t("sentOk");
   sendBox.hidden=true;
   sentBox.hidden=false;
   sentStatus.textContent="";
@@ -840,24 +962,24 @@ prepareBtn.addEventListener("click",function(){
   var bad=validate();
   if(bad){
     status.className="status bad";
-    status.textContent="Uzupełnij zaznaczone pola, a potem wróć tutaj.";
+    status.textContent=t("fixFields");
     bad.scrollIntoView({behavior:smooth(), block:"center"});
     var i=bad.querySelector("input,select,textarea"); if(i) setTimeout(function(){ i.focus({preventScroll:true}); },400);
     return;
   }
   body=compose();
   preview.value=body;
-  if(!WEB3FORMS_KEY || !window.fetch){ showFallback("Wyślij odpowiedzi mailem, to zajmie chwilę:"); return; }
+  if(!WEB3FORMS_KEY || !window.fetch){ showFallback(t("fbNoFetch")); return; }
 
   sending=true;
   prepareBtn.disabled=true;
-  prepareLabel.textContent="Wysyłanie…";
+  prepareLabel.textContent=t("sending");
   status.className="status"; status.textContent="";
   var name=(state.imie||"").trim();
   var payload={
     access_key: WEB3FORMS_KEY,
     subject: subject(),
-    from_name: "Ankieta KOSMΛ" + (name?" · "+name:""),
+    from_name: "KOSMΛ brief" + (name?" · "+name:"") + " ("+lang.toUpperCase()+")",
     replyto: (state.email||"").trim(),
     name: name,
     email: (state.email||"").trim(),
@@ -872,13 +994,13 @@ prepareBtn.addEventListener("click",function(){
     return r.json().then(function(j){ return j; },function(){ return {success:false}; });
   }).then(function(j){
     if(j && j.success){ showSent(); }
-    else { showFallback("Nie udało się wysłać automatycznie. Wyślij odpowiedzi mailem, to zajmie chwilę:"); }
+    else { showFallback(t("fbFail")); }
   },function(){
-    showFallback("Nie udało się wysłać automatycznie. Wyślij odpowiedzi mailem, to zajmie chwilę:");
+    showFallback(t("fbFail"));
   }).then(function(){
     sending=false;
     prepareBtn.disabled=false;
-    prepareLabel.textContent="Wyślij odpowiedzi";
+    prepareLabel.textContent=t("send");
   });
 });
 
@@ -886,28 +1008,28 @@ mailto.addEventListener("click",function(){
   copyText(body, preview).then(function(ok){
     sendStatus.className="status"+(ok?" ok":"");
     sendStatus.textContent = ok
-      ? "Odpowiedzi są w schowku. Jeśli otworzyła się nowa wiadomość, sprawdź treść i kliknij Wyślij."
-      : "Nie udało się skopiować automatycznie. Otwórz podgląd poniżej, zaznacz tekst i skopiuj go ręcznie.";
+      ? t("mailtoOk")
+      : t("mailtoFail");
   });
 });
 document.getElementById("copy").addEventListener("click",function(){
   copyText(body, preview).then(function(ok){
     sendStatus.className="status"+(ok?" ok":"");
     sendStatus.textContent = ok
-      ? "Skopiowano. Wklej odpowiedzi do wiadomości na adres "+EMAIL+"."
-      : "Nie udało się skopiować automatycznie. Podgląd poniżej jest zaznaczony, skopiuj go ręcznie.";
+      ? t("copyOk")
+      : t("copyFail");
   });
 });
 document.getElementById("copySent").addEventListener("click",function(){
   copyText(body, preview).then(function(ok){
     sentStatus.className="status"+(ok?" ok":"");
-    sentStatus.textContent = ok ? "Skopiowano." : "Nie udało się skopiować automatycznie.";
+    sentStatus.textContent = ok ? t("copySentOk") : t("copySentFail");
   });
 });
 document.getElementById("copyAddr").addEventListener("click",function(){
   copyText(EMAIL, document.getElementById("addr")).then(function(ok){
     sendStatus.className="status"+(ok?" ok":"");
-    sendStatus.textContent = ok ? "Adres skopiowany." : "Zaznacz adres i skopiuj go ręcznie.";
+    sendStatus.textContent = ok ? t("addrOk") : t("addrFail");
   });
 });
 
@@ -922,20 +1044,20 @@ if(IN_CLAUDE){
   showDl(true);
 }
 function fileName(){
-  var n=(state.imie||"odpowiedzi").trim().toLowerCase().replace(/ł/g,"l").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-  return "ankieta-marki-"+(n||"odpowiedzi")+".md";
+  var n=(state.imie||t("fileDefault")).trim().toLowerCase().replace(/ł/g,"l").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  return t("filePrefix")+(n||t("fileDefault"))+".md";
 }
 dlBtns.forEach(function(btn){
   btn.addEventListener("click",function(){
     var out = sentBox.hidden ? sendStatus : sentStatus;
     if(dl){
       dl.save({filename:fileName(), data:body}).then(function(){
-        out.className="status ok"; out.textContent="Plik zapisany.";
+        out.className="status ok"; out.textContent=t("fileSaved");
       },function(err){
         var code=err&&err.code;
         if(code==="declined") return;
         if(code==="unavailable"||code==="not_granted"||code==="capability_disabled"||code==="capability_removed"){ showDl(false); }
-        out.className="status"; out.textContent="Nie udało się zapisać pliku. Skorzystaj z przycisku Kopiuj odpowiedzi.";
+        out.className="status"; out.textContent=t("fileFail");
       });
       return;
     }
@@ -945,7 +1067,7 @@ dlBtns.forEach(function(btn){
       document.body.appendChild(a); a.click();
       setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); },1000);
     }catch(e){
-      out.className="status"; out.textContent="Nie udało się zapisać pliku. Skorzystaj z przycisku Kopiuj odpowiedzi.";
+      out.className="status"; out.textContent=t("fileFail");
     }
   });
 });
@@ -954,22 +1076,22 @@ dlBtns.forEach(function(btn){
 var resetRow=document.getElementById("resetRow");
 function showReset(){
   resetRow.innerHTML="";
-  var b=el("button",{type:"button",cls:"btn quiet",id:"reset",text:"Wyczyść formularz"});
+  var b=el("button",{type:"button",cls:"btn quiet",id:"reset",text:t("resetBtn")});
   b.addEventListener("click",askReset);
   resetRow.appendChild(b);
 }
 function askReset(){
   resetRow.innerHTML="";
-  var yes=el("button",{type:"button",cls:"btn quiet",text:"Tak, wyczyść wszystko"});
-  var no=el("button",{type:"button",cls:"btn quiet",text:"Anuluj"});
-  resetRow.appendChild(el("span",{text:"Usunąć wszystkie odpowiedzi z tej przeglądarki?"}));
+  var yes=el("button",{type:"button",cls:"btn quiet",text:t("resetYes")});
+  var no=el("button",{type:"button",cls:"btn quiet",text:t("resetCancel")});
+  resetRow.appendChild(el("span",{text:t("resetAsk")}));
   resetRow.appendChild(yes); resetRow.appendChild(no);
   yes.addEventListener("click",function(){
     state={}; try{ localStorage.removeItem(STORE); }catch(e){}
     build(); syncAllFilled(); progress();
     document.getElementById("send").hidden=true;
     document.getElementById("sent").hidden=true;
-    status.className="status"; status.textContent="Formularz wyczyszczony.";
+    status.className="status"; status.textContent=t("resetDone");
     showReset();
     window.scrollTo({top:0});
   });
@@ -978,7 +1100,21 @@ function askReset(){
 }
 showReset();
 
-form.addEventListener("submit",function(e){ e.preventDefault(); });
+document.addEventListener("submit",function(e){ e.preventDefault(); }, true);
+
+function setLang(l){
+  if(l===lang) return;
+  lang=l; L=l==="en"?1:0;
+  try{ localStorage.setItem(LANG_KEY,l); }catch(e){}
+  applyStatic();
+  build(); syncAllFilled(); progress();
+  sendBox.hidden=true; sentBox.hidden=true;
+  status.className="status"; status.textContent="";
+  showReset();
+}
+[].forEach.call(document.querySelectorAll("[data-lang]"),function(b){
+  b.addEventListener("click",function(){ setLang(b.getAttribute("data-lang")); });
+});
 })();
 </script>
 
