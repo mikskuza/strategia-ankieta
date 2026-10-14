@@ -83,7 +83,7 @@ a{color:inherit}
 @media (min-width:1080px){.page{grid-template-columns:220px minmax(0,720px);justify-content:center;gap:80px}}
 .toc{display:none}
 @media (min-width:1080px){
-  .toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 132px);align-self:start;padding-top:72px}
+  .toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);align-self:start;padding-top:72px} /* 88px = bar height (28+30+28 + 2px progress line); 72px = hero top padding, so the list lines up with the language toggle */
 }
 .toc ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .toc a{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:baseline;text-decoration:none;color:var(--muted);font-size:var(--t-sm);padding:7px 10px;border-radius:6px;transition:color .2s,background .2s}
