@@ -14,12 +14,12 @@ Jeśli wysyłka się nie powiedzie, klient dostaje zapasową ścieżkę: otwarci
 2. Kliknij **Add file → Upload files** i przeciągnij całą zawartość tego folderu (`index.html` i folder `fonts`).
 3. Kliknij **Commit changes**.
 4. Wejdź w **Settings → Pages**. W sekcji *Build and deployment* wybierz **Deploy from a branch**, gałąź `main`, folder `/ (root)`, i zapisz.
-5. Po minucie lub dwóch strona będzie pod adresem `https://<twój-login>.github.io/ankieta/`.
+5. Po minucie lub dwóch strona będzie pod adresem `https://mikskuza.github.io/strategy-questionnaire/`.
 
 ## Języki
 
 Ankieta domyślnie otwiera się po angielsku. Przełącznik ENG / PL jest nad nagłówkiem, a wybór zapamiętuje się w przeglądarce.
-Link od razu po polsku: dopisz `?lang=pl` (albo `#pl`) na końcu adresu, np. `https://mikskuza.github.io/strategia-ankieta/?lang=pl`.
+Link od razu po polsku: dopisz `?lang=pl` (albo `#pl`) na końcu adresu, np. `https://mikskuza.github.io/strategy-questionnaire/?lang=pl`.
 Odpowiedzi przychodzą mailem w języku, w którym klient wypełniał ankietę (pierwsze linijki maila to mówią).
 
 ## Po publikacji
