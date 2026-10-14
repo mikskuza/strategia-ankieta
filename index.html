@@ -98,11 +98,11 @@ main{min-width:0}
 
 /* hero */
 .hero{padding-block:72px 40px;display:grid;gap:28px;border-bottom:1px solid var(--line)}
-.lang{justify-self:start;display:inline-grid;grid-template-columns:1fr 1fr;gap:4px;height:48px;padding:4px;border:2px solid var(--neutral-2);border-radius:14px}
-.lang button{min-width:78px;padding:0 18px;border:0;border-radius:9px;background:transparent;color:var(--ink);font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.04em;line-height:1;cursor:pointer;transition:background-color .2s}
-.lang button:hover{background:var(--raise)}
-.lang button[aria-pressed="true"]{background:var(--neutral-2)}
-.lang button:focus-visible{outline:2px solid var(--dot);outline-offset:2px}
+.seg{justify-self:start;display:inline-grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;height:48px;padding:4px;border:2px solid var(--neutral-2);border-radius:14px}
+.seg button{min-width:78px;padding:0 18px;border:0;border-radius:9px;background:transparent;color:var(--ink);font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.04em;line-height:1;cursor:pointer;transition:background-color .2s}
+.seg button:hover{background:var(--raise)}
+.seg button[aria-pressed="true"]{background:var(--neutral-2)}
+.seg button:focus-visible{outline:2px solid var(--dot);outline-offset:2px}
 form{margin:0}
 .contact{display:grid;gap:34px}
 .eyebrow{font-family:var(--font-mono);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:10px}
@@ -270,7 +270,7 @@ footer svg{height:12px;width:auto;display:block}
 
   <main>
     <header class="hero">
-      <div class="lang" role="group" aria-label="Language" data-i18n-aria="langGroup">
+      <div class="seg" role="group" aria-label="Language" data-i18n-aria="langGroup">
         <button type="button" data-lang="en" aria-pressed="true" lang="en">ENG</button>
         <button type="button" data-lang="pl" aria-pressed="false" lang="pl">PL</button>
       </div>
@@ -450,13 +450,14 @@ var S = [
  {id:"zakres", title:["Zakres, budżet i terminy","Scope, budget and timing"], nav:["Zakres","Scope"], intro:["Żebym mógł przygotować realny plan i wycenę.","So I can prepare a realistic plan and quote."], fields:[
   {k:"zakres", t:"chips", q:["Czego potrzebujesz?","What do you need?"], o:[["Strategia marki","Brand strategy"],["Nazwa","Naming"],"Logo",["Księga znaku","Brand guidelines"],["Identyfikacja wizualna (druki, dokumenty)","Visual identity (print, documents)"],["Szablony social media","Social media templates"],["Strona www","Website"],["Projekt aplikacji (UI/UX)","App design (UI/UX)"],["Opakowania","Packaging"],["Prezentacja firmowa","Company presentation"],["Wizualizacje 3D","3D visualisations"],["Oznakowanie i szyldy","Signage"]]},
   {row:[
-   {k:"budzet", t:"select", q:["Budżet (netto)","Budget (net)"], o:[["do 5 000 zł","up to 5,000 PLN"],["5 000 – 15 000 zł","5,000–15,000 PLN"],["15 000 – 30 000 zł","15,000–30,000 PLN"],["30 000 – 60 000 zł","30,000–60,000 PLN"],["powyżej 60 000 zł","over 60,000 PLN"],["Proszę o wycenę","Please send me a quote"]]},
-   {k:"termin", t:"select", q:["Kiedy marka ma być gotowa?","When should the brand be ready?"], o:[["Jak najszybciej","As soon as possible"],["W ciągu miesiąca","Within a month"],["W ciągu 2–3 miesięcy","Within 2–3 months"],["Bez pośpiechu","No rush"]]}
+   {k:"waluta", t:"currency", q:["Waluta","Currency"]},
+   {k:"budzet", t:"select", dyn:"budget", q:["Budżet (netto)","Budget (net)"]}
   ]},
   {row:[
-   {k:"start", t:"date", q:["Kiedy chcesz zacząć współpracę?","When would you like to start?"]},
-   {k:"decyzja", t:"select", q:["Kto podejmuje decyzje w projekcie?","Who makes decisions on the project?"], o:[["Tylko ja","Only me"],["Ja i wspólnicy","Me and my partners"],["Zarząd","The board"],["Dział marketingu","The marketing team"],["Ktoś jeszcze (opiszę w uwagach)","Someone else (I'll explain in the notes)"]]}
+   {k:"termin", t:"select", q:["Kiedy marka ma być gotowa?","When should the brand be ready?"], o:[["Jak najszybciej","As soon as possible"],["W ciągu miesiąca","Within a month"],["W ciągu 2–3 miesięcy","Within 2–3 months"],["Bez pośpiechu","No rush"]]},
+   {k:"start", t:"date", q:["Kiedy chcesz zacząć współpracę?","When would you like to start?"]}
   ]},
+  {k:"decyzja", t:"select", q:["Kto podejmuje decyzje w projekcie?","Who makes decisions on the project?"], o:[["Tylko ja","Only me"],["Ja i wspólnicy","Me and my partners"],["Zarząd","The board"],["Dział marketingu","The marketing team"],["Ktoś jeszcze (opiszę w uwagach)","Someone else (I'll explain in the notes)"]]},
   {k:"cel", t:"textarea", q:["Co ma się zmienić w firmie dzięki nowej marce?","What should change in the company thanks to the new brand?"], help:["Więcej zapytań, wyższe ceny, nowy rynek, łatwiejsza rekrutacja. Cokolwiek jest dla Ciebie miarą sukcesu.","More enquiries, higher prices, a new market, easier hiring. Whatever success means to you."]}
  ]},
  {id:"koniec", title:["Na koniec","Finally"], nav:["Na koniec","Finally"], intro:["Ostatnie słowo należy do Ciebie.","The last word is yours."], fields:[
@@ -534,7 +535,8 @@ var UI = {
   resetAsk:["Usunąć wszystkie odpowiedzi z tej przeglądarki?","Delete all answers from this browser?"],
   resetYes:["Tak, wyczyść wszystko","Yes, clear everything"],
   resetCancel:["Anuluj","Cancel"],
-  resetDone:["Formularz wyczyszczony.","Form cleared."]
+  resetDone:["Formularz wyczyszczony.","Form cleared."],
+  quote:["Proszę o wycenę","Please send me a quote"]
 };
 
 /* ---------- language: ?lang= or #pl / #en in the link, then the viewer's last choice, then English ---------- */
@@ -551,12 +553,39 @@ var lang=initialLang();
 var L=lang==="en"?1:0;
 function T(x){ return Array.isArray(x) ? (x[L]!=null?x[L]:x[0]) : x; }
 function t(k){ return T(UI[k]); }
-function ov(o){ return Array.isArray(o)?o[0]:o; }   /* stored value: the Polish text */
-function ol(o){ return T(o); }                       /* label in the current language */
+function isGen(o){ return o && typeof o==="object" && !Array.isArray(o); }
+function ov(o){ return isGen(o)?o.v:(Array.isArray(o)?o[0]:o); }   /* stored value: the Polish text, or a tier id */
+function ol(o){ return isGen(o)?o.l:T(o); }                        /* label in the current language */
+function optsOf(f){ return f.dyn==="budget" ? budgetOpts() : (f.o||null); }
 function optLabel(f,v){
-  if(!f.o) return v;
-  for(var i=0;i<f.o.length;i++){ if(ov(f.o[i])===v) return ol(f.o[i]); }
+  var os=optsOf(f); if(!os) return v;
+  for(var i=0;i<os.length;i++){ if(ov(os[i])===v) return ol(os[i]); }
   return v;
+}
+
+/* ---------- currency + budget tiers (stored as t1–t5 / quote, so they follow the chosen currency) ---------- */
+var CURS=["USD","EUR","PLN"];
+var TIERS={PLN:[5000,15000,30000,60000], USD:[1500,4000,8000,15000], EUR:[1200,3500,7000,14000]};
+function curCode(){ return (state.waluta && TIERS[state.waluta]) ? state.waluta : (lang==="pl" ? "PLN" : "USD"); }
+function num(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, L ? "," : "\u00a0"); }
+function money(n){
+  var c=curCode();
+  if(L) return c==="USD" ? "$"+num(n) : c==="EUR" ? "€"+num(n) : num(n)+" PLN";
+  return num(n)+" "+(c==="PLN" ? "zł" : c);
+}
+function budgetOpts(){
+  var a=TIERS[curCode()], o=[];
+  if(L){
+    o.push({v:"t1", l:"up to "+money(a[0])});
+    for(var i=0;i<3;i++) o.push({v:"t"+(i+2), l: curCode()==="PLN" ? num(a[i])+"–"+num(a[i+1])+" PLN" : money(a[i])+"–"+money(a[i+1])});
+    o.push({v:"t5", l:"over "+money(a[3])});
+  } else {
+    o.push({v:"t1", l:"do "+money(a[0])});
+    for(var j=0;j<3;j++) o.push({v:"t"+(j+2), l:num(a[j])+" – "+money(a[j+1])});
+    o.push({v:"t5", l:"powyżej "+money(a[3])});
+  }
+  o.push({v:"quote", l:t("quote")});
+  return o;
 }
 function applyStatic(){
   document.documentElement.lang=lang;
@@ -571,6 +600,10 @@ applyStatic();
 /* ---------- state ---------- */
 var state={};
 try{ var raw=localStorage.getItem(STORE); if(raw){ state=JSON.parse(raw)||{}; } }catch(e){ state={}; }
+(function(){
+  var m={"do 5 000 zł":"t1","5 000 – 15 000 zł":"t2","15 000 – 30 000 zł":"t3","30 000 – 60 000 zł":"t4","powyżej 60 000 zł":"t5","Proszę o wycenę":"quote"};
+  if(state.budzet && m[state.budzet]){ state.budzet=m[state.budzet]; if(!state.waluta && state.budzet!=="quote") state.waluta="PLN"; }
+})();
 var saveTimer=null;
 function persist(){
   clearTimeout(saveTimer);
@@ -604,7 +637,7 @@ function findField(k){
 function allFields(sec){
   var list=[];
   sec.fields.forEach(function(f){
-    if(f.row) f.row.forEach(function(g){ list.push(g); });
+    if(f.row) f.row.forEach(function(g){ if(g.t!=="currency") list.push(g); });
     else if(f.scales) f.scales.forEach(function(g){ list.push(Object.assign({t:"scale"},g)); });
     else list.push(f);
   });
@@ -629,7 +662,7 @@ function head(f, forId){
 function wrap(f, control){
   /* each non-contact field is its own small form, so Safari's contact autofill cannot spill into it */
   var d=f.c ? el("div",{cls:"field", "data-k":f.k}) : el("form",{cls:"field", "data-k":f.k, autocomplete:"off", novalidate:""});
-  if(f.t==="chips"||f.t==="words"||f.t==="consent"){
+  if(f.t==="chips"||f.t==="words"||f.t==="consent"||f.t==="currency"){
     var lab=el("div",{cls:"q", id:"q-"+f.k},[T(f.q)]);
     if(f.req) lab.appendChild(el("span",{cls:"req",text:t("required")}));
     d.appendChild(lab);
@@ -643,7 +676,7 @@ function selectOptions(sel, f){
   sel.innerHTML="";
   sel.appendChild(el("option",{value:"",text:t("choose")}));
   var found=false;
-  f.o.forEach(function(o){ var op=el("option",{value:ov(o),text:ol(o)}); if(ov(o)===cur){ op.selected=true; found=true; } sel.appendChild(op); });
+  optsOf(f).forEach(function(o){ var op=el("option",{value:ov(o),text:ol(o)}); if(ov(o)===cur){ op.selected=true; found=true; } sel.appendChild(op); });
   if(cur && !found){ var op=el("option",{value:cur,text:cur}); op.selected=true; sel.appendChild(op); }
   sel.classList.toggle("empty", !sel.value);
 }
@@ -669,8 +702,12 @@ function renderField(f){
       c=el("select",{id:id});
       if(f.c) c.name=f.k;
       selectOptions(c,f);
-      c.addEventListener("change",function(){ state[f.k]=c.value; c.classList.toggle("empty",!c.value); changed(f); });
-      if(f.from) dependents.push(function(){ selectOptions(c,f); });
+      c.addEventListener("change",function(){
+        state[f.k]=c.value; c.classList.toggle("empty",!c.value);
+        if(f.dyn==="budget" && c.value && !state.waluta) state.waluta=curCode();   /* pin the currency the tier was chosen in */
+        changed(f);
+      });
+      if(f.dyn) dependents.push(function(){ selectOptions(c,f); syncFilled(c); });
       return wrap(f,c);
     case "chips":
       c=el("div",{cls:"chips", role:"group", "aria-labelledby":"q-"+f.k});
@@ -706,6 +743,19 @@ function renderField(f){
       return wrap(f,c);
     case "scale":
       return renderScale(f, true);
+    case "currency":
+      c=el("div",{cls:"seg", role:"group", "aria-labelledby":"q-"+f.k});
+      CURS.forEach(function(code){
+        var b=el("button",{type:"button", "data-cur":code, "aria-pressed":code===curCode()?"true":"false", text:code});
+        b.addEventListener("click",function(){
+          state.waluta=code;
+          [].forEach.call(c.querySelectorAll("button"),function(x){ x.setAttribute("aria-pressed", x.getAttribute("data-cur")===code ? "true" : "false"); });
+          dependents.forEach(function(fn){ fn(); });
+          changed(f);
+        });
+        c.appendChild(b);
+      });
+      return wrap(f,c);
     case "consent":
       var box=el("input",{type:"checkbox", id:id});
       box.checked=state[f.k]===true;
@@ -817,7 +867,6 @@ function progress(){
 function changed(f){
   persist(); progress();
   if(f && f.k){ var w=document.querySelector('.field[data-k="'+f.k+'"]'); if(w && w.classList.contains("invalid") && valid(f)){ w.classList.remove("invalid"); var e=w.querySelector(".err"); if(e) e.remove(); } }
-  if(f && f.k==="uslugi") dependents.forEach(function(fn){ fn(); });
   document.getElementById("send").hidden=true;
   document.getElementById("sent").hidden=true;
 }
@@ -860,6 +909,7 @@ function validate(){
 /* ---------- compose ---------- */
 function fmt(f){
   var v=state[f.k];
+  if(f.t==="currency") return curCode();
   if(f.t==="scale") return typeof v==="number" ? (v+1)+"/7 · "+scaleWords(f,v) : t("noOpinion");
   if(f.t==="chips") return (Array.isArray(v)&&v.length)? v.map(function(x){ return optLabel(f,x); }).join(", ") : "—";
   if(f.t==="select") return (typeof v==="string"&&v)? optLabel(f,v) : "—";
