@@ -69,6 +69,7 @@ a{color:inherit}
 /* top bar */
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bar-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .bar-in{max-width:1180px;margin:0 auto;padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+@media (min-width:1080px){.bar-in{max-width:1060px}} /* = 220px menu + 80px gap + 720px form + 2×20px gutter, so the bar lines up with the page grid */
 .bar .logo svg{height:30px;width:auto;display:block}
 .progress-label{font-size:var(--t-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.12em;display:flex;gap:10px;align-items:baseline}
 .progress-label b{color:var(--dot);font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:.02em;font-size:var(--t-sm)}
