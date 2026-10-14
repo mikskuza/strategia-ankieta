@@ -47,8 +47,8 @@ img{max-width:100%}
   --raise:var(--neutral-3);
   --cta:var(--main-orange);
   --dot:var(--main-orange);
-  --dot-20:rgba(255,79,1,.2);   /* filled fields */
-  --dot-35:rgba(255,79,1,.35);  /* filled fields on hover */
+  --filled:#4a4a4a;             /* ring of a filled field: a step lighter than empty (--line) */
+  --filled-hover:var(--neutral-1); /* filled field on hover */
   --on-cta:#ffffff;
   --bar-bg:rgba(10,10,10,.86);
 
@@ -137,17 +137,17 @@ input[type=text],input[type=email],input[type=tel],input[type=date],textarea{fon
 input::placeholder,textarea::placeholder{color:var(--placeholder);opacity:1}
 /* browser autofill (Safari, Chrome): keep the KOSMΛ field look instead of the yellow fill.
    The fill is painted with an inset shadow, so the ring is painted the same way (Safari drops the border here). */
-input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{--ring:var(--dot-20);border-color:transparent;-webkit-text-fill-color:var(--soft);caret-color:var(--soft);-webkit-box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg);transition:background-color 99999s ease-out 0s}
-input:-webkit-autofill:hover:not(:focus),textarea:-webkit-autofill:hover:not(:focus){--ring:var(--dot-35)}
+input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{--ring:var(--filled);border-color:transparent;-webkit-text-fill-color:var(--soft);caret-color:var(--soft);-webkit-box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg);transition:background-color 99999s ease-out 0s}
+input:-webkit-autofill:hover:not(:focus),textarea:-webkit-autofill:hover:not(:focus){--ring:var(--filled-hover)}
 .invalid input:-webkit-autofill{--ring:var(--cta)}
 input:-webkit-autofill:focus,textarea:-webkit-autofill:focus,select:-webkit-autofill:focus{--ring:var(--dot);-webkit-box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--raise);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--raise)}
-input:autofill,textarea:autofill,select:autofill{--ring:var(--dot-20);border-color:transparent;-webkit-text-fill-color:var(--soft);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg)}
+input:autofill,textarea:autofill,select:autofill{--ring:var(--filled);border-color:transparent;-webkit-text-fill-color:var(--soft);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg)}
 input:autofill:focus,textarea:autofill:focus{--ring:var(--dot);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--raise)}
 
-/* field ring: empty = line, hover = muted, filled = orange 20%, focus = orange, error = orange */
+/* field ring: empty = line, hover = muted, filled = lighter grey, focus = orange, error = orange */
 input:hover:not(.filled):not(:focus),select:hover:not(.filled):not(:focus),textarea:hover:not(.filled):not(:focus){--ring:var(--muted)}
-input.filled,select.filled,textarea.filled{--ring:var(--dot-20)}
-input.filled:hover:not(:focus),select.filled:hover:not(:focus),textarea.filled:hover:not(:focus){--ring:var(--dot-35)}
+input.filled,select.filled,textarea.filled{--ring:var(--filled)}
+input.filled:hover:not(:focus),select.filled:hover:not(:focus),textarea.filled:hover:not(:focus){--ring:var(--filled-hover)}
 input:focus,select:focus,textarea:focus{outline:1px solid var(--dot);outline-offset:0;--ring:var(--dot);background-color:var(--raise)}
 select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer;
   background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
@@ -811,7 +811,7 @@ var form=document.getElementById("form");
 var toc=document.getElementById("toc");
 var io=null;
 
-/* filled state: orange 20% ring on every field that has a value */
+/* filled state: lighter grey ring on every field that has a value */
 var FILLABLE='input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea';
 function syncFilled(n){ if(n && n.matches && n.matches(FILLABLE)) n.classList.toggle("filled", String(n.value||"").trim()!==""); }
 function syncAllFilled(){ form.querySelectorAll(FILLABLE).forEach(syncFilled); }
