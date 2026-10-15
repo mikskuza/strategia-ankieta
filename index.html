@@ -45,6 +45,7 @@ img{max-width:100%}
   --scale-line:var(--neutral-2); /* slider track and ticks keep neutral-2 */
   --placeholder:#525252;
   --raise:var(--neutral-3);
+  --field-focus:#141414;    /* field background while typing: darker than --raise */
   --cta:var(--main-orange);
   --dot:var(--main-orange);
   --filled:#4a4a4a;             /* ring of a filled field: a step lighter than empty (--line) */
@@ -58,7 +59,7 @@ img{max-width:100%}
   --track:0;
 
   --t-xs:12px; --t-sm:13.5px; --t-md:15px; --t-lg:18px; --t-xl:clamp(23px,3.6vw,34px); --t-xxl:clamp(28px,5.2vw,48px);
-  --r-input:8px;
+  --r-input:16px;          /* KOSMΛ DS radius-input */
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -140,19 +141,19 @@ input::placeholder,textarea::placeholder{color:var(--placeholder);opacity:1}
 input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{--ring:var(--filled);border-color:transparent;-webkit-text-fill-color:var(--soft);caret-color:var(--soft);-webkit-box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg);transition:background-color 99999s ease-out 0s}
 input:-webkit-autofill:hover:not(:focus),textarea:-webkit-autofill:hover:not(:focus){--ring:var(--filled-hover)}
 .invalid input:-webkit-autofill{--ring:var(--cta)}
-input:-webkit-autofill:focus,textarea:-webkit-autofill:focus,select:-webkit-autofill:focus{--ring:var(--dot);-webkit-box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--raise);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--raise)}
+input:-webkit-autofill:focus,textarea:-webkit-autofill:focus,select:-webkit-autofill:focus{--ring:var(--dot);-webkit-box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--field-focus);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--field-focus)}
 input:autofill,textarea:autofill,select:autofill{--ring:var(--filled);border-color:transparent;-webkit-text-fill-color:var(--soft);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--bg)}
-input:autofill:focus,textarea:autofill:focus{--ring:var(--dot);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--raise)}
+input:autofill:focus,textarea:autofill:focus{--ring:var(--dot);box-shadow:inset 0 0 0 1px var(--ring),inset 0 0 0 1000px var(--field-focus)}
 
 /* field ring: empty = line, hover = muted, filled = lighter grey, focus = orange, error = orange */
 input:hover:not(.filled):not(:focus),select:hover:not(.filled):not(:focus),textarea:hover:not(.filled):not(:focus){--ring:var(--muted)}
 input.filled,select.filled,textarea.filled{--ring:var(--filled)}
 input.filled:hover:not(:focus),select.filled:hover:not(:focus),textarea.filled:hover:not(:focus){--ring:var(--filled-hover)}
-input:focus,select:focus,textarea:focus{outline:1px solid var(--dot);outline-offset:0;--ring:var(--dot);background-color:var(--raise)}
+input:focus,select:focus,textarea:focus{outline:1px solid var(--dot);outline-offset:0;--ring:var(--dot);background-color:var(--field-focus)}
 select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer;
   background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
   background-position:calc(100% - 22px) 50%,calc(100% - 17px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
-select:focus{background-color:var(--raise)}
+select:focus{background-color:var(--field-focus)}
 select.empty{color:var(--placeholder)}
 option{background:var(--raise);color:var(--ink)}
 input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.8);cursor:pointer}
@@ -435,17 +436,14 @@ var S = [
   {k:"kanaly", t:"chips", q:["Gdzie marka będzie się komunikować?","Where will the brand communicate?"], o:[["Strona www","Website"],["Profil firmy w Google","Google Business Profile"],"Instagram","Facebook","LinkedIn","TikTok","YouTube","Newsletter",["Materiały drukowane","Printed materials"],["Targi i wydarzenia","Trade fairs and events"]]},
   {k:"haslo", t:"text", q:["Pomysły na hasło","Tagline ideas"], help:["Opcjonalnie. Nawet robocze i nieidealne.","Optional. Even rough, imperfect ones."], ph:["np. Zrobione porządnie","e.g. Done properly"]}
  ]},
- {id:"wizual", title:["Styl wizualny","Visual style"], nav:["Styl","Style"], intro:["Tu nie projektujemy jeszcze logo. Szukamy kierunku: jak marka ma wyglądać i jak ma się czuć.","We're not designing the logo yet. We're looking for a direction: how the brand should look and feel."], fields:[
+ {id:"wizual", title:["Styl wizualny","Visual style"], nav:["Styl","Style"], intro:["Tu nie projektujemy jeszcze logo. Szukamy kierunku: jak marka ma wyglądać i jak ma się czuć. Rzeczy, które tu wskażesz, nie muszą pojawić się w finalnej wersji identyfikacji. Służą jedynie temu, żebym mógł Cię lepiej poznać.","We're not designing the logo yet. We're looking for a direction: how the brand should look and feel. The things you point to here don't have to appear in the final identity. They only help me get to know you better."], fields:[
   {k:"obecna", t:"select", q:["Czy firma ma już logo lub identyfikację?","Does the company already have a logo or visual identity?"], o:[["Nie, zaczynamy od zera","No, we're starting from scratch"],["Tak, ale do całkowitej zmiany","Yes, but it needs a complete change"],["Tak, do odświeżenia","Yes, it needs a refresh"],["Tak, zostaje (potrzebne nowe materiały)","Yes, it stays (we need new materials)"]]},
   {scales:[
    {k:"v_detal", l:["Minimalistyczny","Minimal"], r:["Bogaty w detale","Rich in detail"]},
-   {k:"v_temp", l:["Ciepły","Warm"], r:["Chłodny","Cool"]},
-   {k:"v_klasyka", l:["Klasyczny","Classic"], r:["Eksperymentalny","Experimental"]},
-   {k:"v_forma", l:["Geometryczny","Geometric"], r:["Organiczny","Organic"]},
-   {k:"v_jasnosc", l:["Jasny","Light"], r:["Ciemny","Dark"]},
-   {k:"v_litery", l:["Litery szeryfowe, eleganckie","Serif type, elegant"], r:["Litery bezszeryfowe, czyste","Sans-serif type, clean"]}
+   {k:"v_klasyka", l:["Klasyczny","Classic"], r:["Eksperymentalny","Experimental"]}
   ]},
-  {k:"inspiracje", t:"textarea", q:["Inspiracje wizualne","Visual inspiration"], help:["Linki, marki spoza branży, wnętrza, okładki, cokolwiek, co Ci się podoba.","Links, brands from other industries, interiors, covers, anything you like."], ph:"https://…"}
+  {k:"inspiracje", t:"textarea", q:["Inspiracje wizualne","Visual inspiration"], help:["Linki, marki spoza branży, wnętrza, okładki, cokolwiek, co Ci się podoba.","Links, brands from other industries, interiors, covers, anything you like."], ph:"https://…"},
+  {k:"preferencje", t:"textarea", q:["Twoje preferencje i inne przykłady","Your preferences and other examples"], help:["Jeżeli chcesz opisać swoje preferencje lub podać inne przykłady, to jest dobre miejsce.","If you'd like to describe your preferences or share other examples, this is the place."]}
  ]},
  {id:"zakres", title:["Zakres, budżet i terminy","Scope, budget and timing"], nav:["Zakres","Scope"], intro:["Żebym mógł przygotować realny plan i wycenę.","So I can prepare a realistic plan and quote."], fields:[
   {k:"zakres", t:"chips", q:["Czego potrzebujesz?","What do you need?"], o:[["Strategia marki","Brand strategy"],["Nazwa","Naming"],"Logo",["Księga znaku","Brand guidelines"],["Identyfikacja wizualna (druki, dokumenty)","Visual identity (print, documents)"],["Szablony social media","Social media templates"],["Strona www","Website"],["Projekt aplikacji (UI/UX)","App design (UI/UX)"],["Opakowania","Packaging"],["Prezentacja firmowa","Company presentation"],["Wizualizacje 3D","3D visualisations"],["Oznakowanie i szyldy","Signage"]]},
