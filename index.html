@@ -14,6 +14,9 @@ img{max-width:100%}
 [hidden]{display:none!important}
 </style>
 <title>Brand Strategy Brief · KOSMΛ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@100..125,400..600&display=swap">
 <style>
 /* Layout: one reading column (max 720px) under a sticky progress bar; on wide screens a sticky section index sits to the left.
    Single dark theme, colours and type from KOSMΛ DS: Quablo for headlines, Geist for UI and descriptions, Geist Mono in text fields. */
@@ -40,7 +43,7 @@ img{max-width:100%}
   --bg:var(--main-black);
   --ink:var(--neutral-0);
   --soft:var(--neutral-05);
-  --muted:var(--neutral-1);
+  --muted:#6b6b6b;          /* 3rd-level text: a touch darker than neutral-1 (#777) */
   --line:#2a2a2a;          /* outlines: one step darker than neutral-2 */
   --scale-line:var(--neutral-2); /* slider track and ticks keep neutral-2 */
   --placeholder:#525252;
@@ -56,6 +59,8 @@ img{max-width:100%}
   --font-display:"Quablo","Geist",system-ui,sans-serif;
   --font:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --font-semi:"Mona Sans","Geist",system-ui,sans-serif;   /* used SemiExpanded: field names and the lead */
+  --gap-field:68px;         /* vertical space between fields */
   --track:0;
 
   --t-xs:12px; --t-sm:13.5px; --t-md:15px; --t-lg:18px; --t-xl:clamp(23px,3.6vw,34px); --t-xxl:clamp(28px,5.2vw,48px);
@@ -105,11 +110,11 @@ main{min-width:0}
 .seg button[aria-pressed="true"]{background:var(--neutral-2)}
 .seg button:focus-visible{outline:2px solid var(--dot);outline-offset:2px}
 form{margin:0}
-.contact{display:grid;gap:34px}
+.contact{display:grid;gap:var(--gap-field)}
 .eyebrow{font-family:var(--font-mono);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot);flex:none}
 h1{color:var(--ink);font-family:var(--font-display);font-size:var(--t-xxl);font-weight:600;line-height:1.08;letter-spacing:-.005em;margin:0;text-wrap:balance;max-width:16ch}
-.lede{font-size:20px;line-height:1.4;color:var(--soft);margin:0;max-width:56ch;font-weight:300}
+.lede{font-family:var(--font-semi);font-stretch:112.5%;font-size:20px;line-height:1.4;color:var(--soft);margin:0;max-width:56ch;font-weight:500}
 .lede + p{margin:0;color:var(--muted);max-width:60ch}
 .facts{font-family:var(--font-mono);display:flex;flex-wrap:wrap;gap:10px 28px;margin:4px 0 0;padding:0;list-style:none;font-size:var(--t-sm);color:var(--muted)}
 .facts b{color:var(--dot);font-weight:400;font-variant-numeric:tabular-nums}
@@ -121,13 +126,13 @@ section.part{padding-block:64px 8px;display:grid;gap:36px}
 .part-num b{color:var(--dot);font-weight:400}
 h2{color:var(--ink);font-family:var(--font-display);font-size:var(--t-xl);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
 .part-intro{margin:0;color:var(--muted);max-width:58ch;font-size:17px}
-.fields{display:grid;gap:34px}
-.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:34px 20px;align-items:start}
+.fields{display:grid;gap:var(--gap-field)}
+.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap-field) 40px;align-items:start}
 
 /* fields */
 .field{display:grid;gap:10px;min-width:0;align-content:start}
-.q{font-family:var(--font);font-size:17px;font-weight:500;letter-spacing:0;color:var(--soft);line-height:1.45;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
-.req{font-family:var(--font);font-weight:400;font-size:var(--t-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.q{font-family:var(--font-semi);font-stretch:112.5%;font-size:17px;font-weight:500;letter-spacing:0;color:var(--soft);line-height:1.45;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.req{font-family:var(--font);font-stretch:normal;font-weight:400;font-size:var(--t-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 .help{font-size:var(--t-sm);color:var(--muted);margin:-4px 0 0;line-height:1.5;max-width:62ch}
 input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
   width:100%;font:inherit;font-weight:400;font-size:var(--t-md);color:var(--soft);letter-spacing:var(--track);
