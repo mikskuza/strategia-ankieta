@@ -380,7 +380,7 @@ var S = [
   {k:"historia", t:"textarea", q:["Jak powstała firma i dlaczego?","How and why did the company start?"], help:["Krótka historia: kto, kiedy, z jakiego powodu. Co chcesz robić inaczej niż inni?","A short story: who, when and why. What do you want to do differently from others?"]}
  ]},
  {id:"oferta", title:["Oferta i rynek","Offer and market"], nav:["Oferta","Offer"], intro:["Co firma sprzedaje, komu i w jaki sposób.","What the company sells, to whom and how."], fields:[
-  {k:"co", t:"chips", q:["Co sprzedajecie?","What do you sell?"], o:[["Usługi","Services"],["Produkty fizyczne","Physical products"],["Produkty cyfrowe / oprogramowanie","Digital products / software"],["Subskrypcje","Subscriptions"],["Szkolenia i wiedza","Training and know-how"],["Gastronomię lub noclegi","Food or accommodation"],["Inne","Other"]]},
+  {k:"co", t:"chips", q:["Co sprzedajecie?","What do you sell?"], o:[["Usługi","Services"],["Produkty fizyczne","Physical products"],["Produkty cyfrowe / oprogramowanie","Digital products / software"],["Produkty audio","Audio products"],["Subskrypcje","Subscriptions"],["Szkolenia i wiedza","Training and know-how"],["Gastronomię lub noclegi","Food or accommodation"],["Inne","Other"]]},
   {k:"glowna", t:"text", q:["Najważniejszy produkt lub usługa","Your key product or service"], help:["Ta jedna rzecz, z której marka ma być znana najbardziej.","The one thing the brand should be best known for."], ph:["np. projekty wnętrz mieszkań pod klucz","e.g. turnkey apartment interior design"]},
   {k:"komu", t:"chips", q:["Komu sprzedajecie?","Who do you sell to?"], o:[["Klientom indywidualnym (B2C)","Consumers (B2C)"],["Firmom (B2B)","Businesses (B2B)"],["Instytucjom publicznym","Public institutions"],["Organizacjom społecznym","Non-profit organisations"]]},
   {row:[
@@ -536,7 +536,8 @@ var UI = {
   resetYes:["Tak, wyczyść wszystko","Yes, clear everything"],
   resetCancel:["Anuluj","Cancel"],
   resetDone:["Formularz wyczyszczony.","Form cleared."],
-  quote:["Proszę o wycenę","Please send me a quote"]
+  quote:["Proszę o wycenę","Please send me a quote"],
+  hourly:["Wolę stawkę godzinową","I prefer an hourly rate"]
 };
 
 /* ---------- language: ?lang= or #pl / #en in the link, then the viewer's last choice, then English ---------- */
@@ -566,6 +567,7 @@ function optLabel(f,v){
 /* ---------- currency + budget tiers (stored as t1–t5 / quote, so they follow the chosen currency) ---------- */
 var CURS=["USD","EUR","PLN"];
 var TIERS={PLN:[5000,15000,30000,60000], USD:[1500,4000,8000,15000], EUR:[1200,3500,7000,14000]};
+var HOURLY={USD:100, EUR:85, PLN:350};
 function curCode(){ return (state.waluta && TIERS[state.waluta]) ? state.waluta : (lang==="pl" ? "PLN" : "USD"); }
 function num(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, L ? "," : "\u00a0"); }
 function money(n){
@@ -584,6 +586,7 @@ function budgetOpts(){
     for(var j=0;j<3;j++) o.push({v:"t"+(j+2), l:num(a[j])+" – "+money(a[j+1])});
     o.push({v:"t5", l:"powyżej "+money(a[3])});
   }
+  o.push({v:"hourly", l:t("hourly")+" ("+money(HOURLY[curCode()])+"/h)"});
   o.push({v:"quote", l:t("quote")});
   return o;
 }
